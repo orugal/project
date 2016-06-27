@@ -24,7 +24,8 @@ $lang['placeHolderCorreo']  = " Correo Electrónico";
 $lang['placeHolderClave']  	= " Contraseña";
 $lang['labelBtnLogin']  	= " Ingresar";
 $lang['labelNoTieneCuenta']	= " Aún no tienes una cuenta, registrala aquí..";
-$lang['labelBtnCrear']		= " Crear cuenta";
+$lang['labelBtnCrear1']		= " Empresas";
+$lang['labelBtnCrear2']		= " Personas";
 
 
 

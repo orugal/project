@@ -19,11 +19,11 @@ class Empresas extends CI_Controller
 	public function menuEmpresa()
 	{
 		$salida['menu']   = "empresas/menu";
-		return $this->load->view("empresas/menu",$salida);
+		return $this->load->view("empresas/menu",$salida,true);
 	}
 	public function areas()	
 	{
-		$salida['titulo'] = lang("titulo");
+		$salida['titulo'] = lang("titulo")." - Áreas";
 		$salida['centro'] = "empresas/areas/home";
 		$salida['menu']   =  $this->menuEmpresa();
 		$this->load->view("empresas/index",$salida);
@@ -31,14 +31,21 @@ class Empresas extends CI_Controller
 	public function personas()	
 	{
 		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/home";
+		$salida['centro'] = "empresas/personas/home";
 		$salida['menu']   =  $this->menuEmpresa();
 		$this->load->view("empresas/index",$salida);
 	}
-	public function tareas()	
+	public function proyectos()	
 	{
 		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/home";
+		$salida['centro'] = "empresas/tareas/home";
+		$salida['menu']   =  $this->menuEmpresa();
+		$this->load->view("empresas/index",$salida);
+	}
+	public function infoProyecto()	
+	{
+		$salida['titulo'] = lang("titulo");
+		$salida['centro'] = "empresas/tareas/infoProyecto";
 		$salida['menu']   =  $this->menuEmpresa();
 		$this->load->view("empresas/index",$salida);
 	}

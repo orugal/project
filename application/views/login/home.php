@@ -15,8 +15,12 @@
 
           <script id="metamorph-22-start" type="text/x-placeholder"></script><script id="metamorph-22-end" type="text/x-placeholder"></script>
 
-          <a href="<?php echo base_url()?>empresas" class="btn btn-raised btn-warning" data-bindattr-3="3"><?php echo lang("labelBtnLogin") ?></a>
-          <br>
-          <small class="create-account text-muted"><?php echo lang("labelNoTieneCuenta") ?> <button id="ember363" class="ember-view btn btn-sm btn-default"> <?php echo lang("labelBtnCrear") ?> </button> </small>
+          <a href="<?php echo base_url()?>empresas" class="btn btn-raised btn-primary" data-bindattr-3="3"><?php echo lang("labelBtnLogin") ?></a>
+          <br><br><br>
+          <small class="create-account text-muted"><?php echo lang("labelNoTieneCuenta") ?> 
+          <button id="ember363" class="ember-view btn btn-sm btn-default"> <?php echo lang("labelBtnCrear1") ?> </button> |
+          <button id="ember363" class="ember-view btn btn-sm btn-default"> <?php echo lang("labelBtnCrear2") ?> </button> 
+          </small>
+
       </form>
     </div>
