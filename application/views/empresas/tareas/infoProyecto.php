@@ -57,10 +57,10 @@
                             cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                             proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br><br>
 
-                            <small>Solicitado por: Farez Prieto</small>
+                            <small><strong>Solicitado por:</strong> Farez Prieto</small>
+                            <small><strong>Fecha de inicio:</strong> Lunes 27 de Junio de 2016</small>
+                            <small><strong>Fecha de Entrega:</strong> Lunes 4 de Julio de 2016</small>
                           </blockquote>  
-                            <h5><strong>Fecha de inicio</strong>: Lunes 27 de Junio de 2016 -  
-                            <strong>Fecha de Entrega</strong>: Lunes 4 de Julio de 2016</h5>
                         </p>
                     </div>
                 </div>

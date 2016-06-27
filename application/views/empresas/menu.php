@@ -133,7 +133,10 @@
                         <a href="<?php echo base_url()?>empresas/reportes"><i class="fa fa-fw fa-clock-o"></i> Reporte de ingreso</a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>empresas/configuracion"><i class="fa fa-fw fa-desktop"></i> Configuración</a>
+                        <a href="<?php echo base_url()?>empresas/configuracion"><i class="fa fa-fw fa-desktop"></i> Ofertas Laborales</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>empresas/configuracion"><i class="fa fa-fw fa-desktop"></i> Pautas publicitarias</a>
                     </li>
                 </ul>
             </div>
