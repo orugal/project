@@ -57,5 +57,12 @@
     <script src="<?php echo base_url() ?>res/js/plugins/morris/morris-data.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/material.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/ripples.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/validator.js"></script>
+    <script type="text/javascript">
+        var configLogin =  {
+            apiUrl: '<?php echo base_url()?>'
+        }
+         $.material.init();
+    </script>
 </body>
 </html>

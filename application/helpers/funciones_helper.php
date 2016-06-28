@@ -44,28 +44,42 @@ function sendMail($para,$asunto,$mensaje)
 {
     $ci = get_instance();
     $ci->load->library('email');
-
+    $ci->load->model("general/baseDatosGral","baseGeneral");
     $ci->email->initialize(array(
-      'protocol' => 'smtp',
-      'smtp_host' => 'mail.tucomunidad.co',
-      'smtp_user' => 'noreply@tucomunidad.co',
-      'smtp_pass' => 'S1s73m4s',
+      'protocol' => 'mail',
+      'smtp_host' => 'mail.wannabe.com.co',
+      'smtp_user' => 'info@wannabe.com.co',
+      'smtp_pass' => 'Jg$E3D+u',
       'smtp_port' => 587,
       'crlf' => "\r\n",
       'newline' => "\r\n",
       'mailtype'=>"html"
     ));
-
-
-    $ci->email->from('noreply@tucomunidad.co', 'Tu Comunidad');
+    $ci->email->from('info@wannabe.com.co', NOMBRE_APP);
     $ci->email->to($para);
     //$ci->  email->cc('another@another-example.com');
     //$ci->  email->bcc('them@their-example.com');
-
     $ci->email->subject($asunto);
     $ci->email->message($mensaje);
+    if($ci->email->send())//exitoso
+    {
+        $estado = 1;
+    }
+    else//fallido
+    {
+        $estado = 0;
+    }
 
-    $ci->email->send();
+    $dataInserta['para']        = $para;
+    $dataInserta['asunto']      = $asunto;
+    $dataInserta['mensaje']     = $mensaje;
+    $dataInserta['estado']      = $estado;
+    $dataInserta['fechaEnvio']  = date("Y-m-d H:i:s");
+    $dataInserta['ip']          = getIP();
+    $EnvioMailDb                = $ci->baseGeneral->envioMailDB($dataInserta);
+
+    return $estado;
+
 }
 function generaHoras($desde,$hasta)
 {
@@ -199,6 +213,51 @@ function validaIngreso()
     {
         
     }
+}
+
+function sumaDias($fechaSuma,$dias)
+{
+    $fecha = date_create($fechaSuma);
+    date_add($fecha, date_interval_create_from_date_string($dias.' days'));
+    return date_format($fecha, 'Y-m-d H:i:s');
+}
+
+/*
+* int $salida Define si la respuesta es en Array o en Json
+* return string o array $listaDeptos
+*/
+function getDepartamentos($idPais="057",$salida="ARRAY"){
+     $ci = get_instance();
+     $ci->load->model("general/baseDatosGral","baseGeneral");
+     $where['ID_PAIS']  =   $idPais;
+     $listaDeptos  =   $ci->baseGeneral->getDepartamentos($where);
+     if($salida == "ARRAY")
+     {
+        return $listaDeptos;
+     }
+     else if($salida == "JSON")
+     {
+        return json_encode($listaDeptos);  
+     }
+}
+/*
+* int $salida Define si la respuesta es en Array o en Json
+* return string o array $listaDeptos
+*/
+function getCiudades($idPais="057",$idDepto,$salida="ARRAY"){
+     $ci = get_instance();
+     $ci->load->model("general/baseDatosGral","baseGeneral");
+     $where['ID_PAIS']  =   $idPais;
+     $where['ID_DPTO']  =   $idDepto;
+     $listaCiudades  =   $ci->baseGeneral->getCiudades($where);
+     if($salida == "ARRAY")
+     {
+        return $listaCiudades;
+     }
+     else if($salida == "JSON")
+     {
+        return json_encode($listaCiudades);  
+     }
 }
 
 function sendNotifi($idPersona,$mensaje,$titulo)
