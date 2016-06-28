@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://192.168.0.12:8081/project/';
+$config['base_url']	= 'http://192.168.0.14/project/';
 //$config['base_url']	= 'http://192.168.0.20/tucomunidad/';
 
 /*
