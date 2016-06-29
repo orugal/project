@@ -67,11 +67,11 @@ class LogicaLogin  {
             //ahora debo identificar el tipo de login que me ha retornado este query
             if($dataLogin[0]['tipoLogin'] == 1)//empresa
             {
-                $respuesta = $this->procesoEmpresas();
+                $respuesta = $this->procesoEmpresas($dataLogin[0]);
             }
             elseif($dataLogin[0]['tipoLogin'] == 2)//usuario
             {
-                //$respuesta = $this->procesoEmpresas();
+                //$respuesta = $this->procesoPersonas($dataLogin[0]);
             }
             else
             {
@@ -92,7 +92,7 @@ class LogicaLogin  {
     /*
     * Función que realizará el proceso de login para las empresas
     */
-    public function procesoEmpresas()
+    public function procesoEmpresas($dataLogin)
     {
         echo "HERE";
     }
