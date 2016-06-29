@@ -1227,20 +1227,20 @@ CREATE TABLE `app_empresas` (
   `nroDocumento` int(11) DEFAULT NULL,
   `tipoActividad` int(11) DEFAULT NULL,
   `logo` text,
+  `icono` text,
   `nombreEncargado` text,
   `email` text,
   `ultimoIngreso` datetime DEFAULT NULL,
   `estado` int(11) DEFAULT '1',
   `eliminado` int(11) DEFAULT '0',
   PRIMARY KEY (`idEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_empresas` */
 
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Singularcom','Cra dfsdfsdf','12321323',1,11,NULL,NULL,NULL,NULL,NULL,NULL,'123123213@asdasdasd.com',NULL,1,0);
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (2,'Singularcom','Cra dfsdfsdf','12321323',1,11,NULL,NULL,NULL,NULL,NULL,NULL,'123123213@asdasdasd.com',NULL,1,0);
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (3,'Singularcom','Cra dfsdfsdf','12321323',1,11,NULL,NULL,NULL,NULL,NULL,NULL,'123123213@asdasdasd.com',NULL,1,0);
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (4,'Singularcom','Cra 81 # 11 09','4740606',1,11,NULL,NULL,NULL,NULL,NULL,NULL,'kyo20052@gmail.com',NULL,1,0);
+insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Singularcom S.A.','Cra 81 # 11 09','3114881738',1,11,NULL,NULL,NULL,NULL,'logo.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,0);
+insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (5,'It Soluciones','Cra 81 # 11 09','23123123213213',1,8,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'isarmiento@itsoluciones.net',NULL,1,0);
+insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (6,'fgdfgdfgf','dfgdfgdfg','45345345',1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kyodfgdfgf@fsdfdf.vom',NULL,1,0);
 
 /*Table structure for table `app_estadopago` */
 
@@ -1256,37 +1256,43 @@ CREATE TABLE `app_estadopago` (
   `estado` int(11) DEFAULT '1',
   `eliminado` int(11) DEFAULT '0',
   PRIMARY KEY (`idPago`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_estadopago` */
 
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (1,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-28 13:51:40','2016-09-26 13:51:40',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (2,2,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-28 13:53:02','2016-09-26 13:53:02',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (3,3,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-28 13:53:58','2016-09-26 13:53:58',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (4,4,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-28 13:54:56','2016-09-26 13:54:56',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (1,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 10:58:04','2016-09-27 10:58:04',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (2,2,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 11:01:04','2016-09-27 11:01:04',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (3,3,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 11:02:22','2016-09-27 11:02:22',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (4,4,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 12:28:37','2016-09-27 12:28:37',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (5,5,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:15:51','2016-09-27 13:15:51',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (6,6,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:32:12','2016-09-27 13:32:12',90,1,0);
 
-/*Table structure for table `app_loginempresa` */
+/*Table structure for table `app_login` */
 
-DROP TABLE IF EXISTS `app_loginempresa`;
+DROP TABLE IF EXISTS `app_login`;
 
-CREATE TABLE `app_loginempresa` (
+CREATE TABLE `app_login` (
   `idLoginEmpresa` bigint(20) NOT NULL AUTO_INCREMENT,
-  `idEmpresa` bigint(20) DEFAULT NULL,
+  `idGeneral` bigint(20) DEFAULT NULL,
+  `tipoLogin` int(11) DEFAULT NULL,
   `usuario` text,
   `clave` text,
   `clave64` text,
   `cambioClave` int(11) DEFAULT '1',
+  `primeraVez` int(11) DEFAULT '1',
   `verificado` int(11) DEFAULT '0',
   `estado` int(11) DEFAULT '1',
   PRIMARY KEY (`idLoginEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
-/*Data for the table `app_loginempresa` */
+/*Data for the table `app_login` */
 
-insert into `app_loginempresa` (`idLoginEmpresa`,`idEmpresa`,`usuario`,`clave`,`clave64`,`cambioClave`,`verificado`,`estado`) values (1,1,'123123213@asdasdasd.com','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,0,1);
-insert into `app_loginempresa` (`idLoginEmpresa`,`idEmpresa`,`usuario`,`clave`,`clave64`,`cambioClave`,`verificado`,`estado`) values (2,2,'123123213@asdasdasd.com','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,0,1);
-insert into `app_loginempresa` (`idLoginEmpresa`,`idEmpresa`,`usuario`,`clave`,`clave64`,`cambioClave`,`verificado`,`estado`) values (3,3,'123123213@asdasdasd.com','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,0,1);
-insert into `app_loginempresa` (`idLoginEmpresa`,`idEmpresa`,`usuario`,`clave`,`clave64`,`cambioClave`,`verificado`,`estado`) values (4,4,'kyo20052@gmail.com','ab7cbb06054fc9823a6370abe602a09ee0dc2736','SmckRTNEK3U=',0,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (1,1,1,'kyo20052@gmail.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (2,2,1,'isarmiento@itsoluciones.net','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (3,3,1,'info@oempresarial.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (4,4,1,'prueba@eltiempo.com','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (5,5,1,'isarmiento@itsoluciones.net','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (6,6,1,'kyodfgdfgf@fsdfdf.vom','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
 
 /*Table structure for table `app_mails` */
 
@@ -1301,7 +1307,7 @@ CREATE TABLE `app_mails` (
   `fechaEnvio` datetime DEFAULT NULL,
   `ip` text,
   PRIMARY KEY (`idMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_mails` */
 
@@ -1309,6 +1315,16 @@ insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (2,NULL,NULL,NULL,1,'2016-06-28 13:53:03','192.168.0.12');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (3,'123123213@asdasdasd.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-28 13:53:58','192.168.0.12');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (4,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-28 13:54:56','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (5,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 10:18:14','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (6,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 10:20:06','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (7,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 10:21:35','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (8,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-29 10:23:06','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (9,'kyo20052@gmail.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-29 10:58:04','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (10,'isarmiento@itsoluciones.net','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-29 11:01:04','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (11,'info@oempresarial.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',1,'2016-06-29 11:02:22','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (12,'prueba@eltiempo.com','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 12:28:37','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (13,'isarmiento@itsoluciones.net','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 13:15:57','192.168.0.12');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (14,'kyodfgdfgf@fsdfdf.vom','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 13:32:17','192.168.0.12');
 
 /*Table structure for table `app_paises` */
 
@@ -1324,6 +1340,34 @@ CREATE TABLE `app_paises` (
 
 insert into `app_paises` (`ID_PAIS`,`NOMBRE`) values ('057','COLOMBIA');
 insert into `app_paises` (`ID_PAIS`,`NOMBRE`) values ('058','VENEZUELA');
+
+/*Table structure for table `app_personas` */
+
+DROP TABLE IF EXISTS `app_personas`;
+
+CREATE TABLE `app_personas` (
+  `idPersona` bigint(20) NOT NULL DEFAULT '0',
+  `nombre` text,
+  `direccion` text,
+  `telefono` text,
+  `ciudad` int(11) DEFAULT NULL,
+  `departamento` int(11) DEFAULT NULL,
+  `pais` int(11) DEFAULT NULL,
+  `tipoDocumento` int(11) DEFAULT NULL,
+  `nroDocumento` int(11) DEFAULT NULL,
+  `tipoActividad` int(11) DEFAULT NULL,
+  `logo` text,
+  `icono` text,
+  `nombreEncargado` text,
+  `email` text,
+  `ultimoIngreso` datetime DEFAULT NULL,
+  `estado` int(11) DEFAULT '1',
+  `eliminado` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `app_personas` */
+
+insert into `app_personas` (`idPersona`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (2,'It Soluciones','Cra 14 # 85 20','3114881738',1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'isarmiento@itsoluciones.nett',NULL,1,0);
 
 /*Table structure for table `aud_areas` */
 
