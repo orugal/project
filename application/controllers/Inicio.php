@@ -11,36 +11,11 @@ class Inicio extends CI_Controller
     }
 	public function index()	
 	{
-		$this->login();
-		//echo "aca";
+		header('Location:'.base_url()."login");
 	}
 	public function homeEmpresa()
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "login/home";
-		$this->load->view("empresas/index",$salida);
-
-
-		$perfiles = array(1);
-		if(validaSeguridad($perfiles))
-		{	
-			$variablesHome['titulo'] 	= "Administración";
-			$variablesHome['cabeza'] 	=  $this->cabeza();
-			$variablesHome['persist'] 	=  $_SESSION['tucomunidad'];
-			$variablesHome['centro'] 	=  "home/administracion";
-			$variablesHome['pie'] 	 	=  $this->pie();
-			return $this->load->view('home/index',$variablesHome);
-		}
-		else
-		{
-			$this->AreaRestringida();
-		}
-	}
-	public function login()
-	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "login/home";
-		$this->load->view("login/index",$salida);
+		
 	}	
 }
 ?>

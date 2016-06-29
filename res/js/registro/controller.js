@@ -30,6 +30,18 @@ project.controller('registroEmpresas', function($scope,$http,$q,constantes)
 			$scope.$digest();
 		});
 	}
+	$scope.verificaEmpresa = function()
+	{
+
+		var controlador = 	$scope.config.apiUrl+"registro/verificaEmpresaN";
+		var parametros  = "palabra="+$scope.nombre;
+		constantes.consultaApi(controlador,parametros,function(json){
+			if(json.continuar)
+			{
+
+			}
+		});
+	}
 	$scope.registraEmpresa = function()
 	{
 		$scope.departamento = $("#departamento").val();
@@ -38,73 +50,73 @@ project.controller('registroEmpresas', function($scope,$http,$q,constantes)
 		if($scope.nombre == "" || $scope.nombre == undefined)
 		{
 			constantes.alerta("Atención","El campo nombre de la empresa es requerido","warning",function(){
-				$("#nombre").focus();
+				setTimeout(function(){$("#nombre").focus()});
 			})
 		}
 		else if($scope.direccion == "" || $scope.direccion == undefined)
 		{
 			constantes.alerta("Atención","El campo dirección de la empresa es requerido","warning",function(){
-				$("#direccion").focus();
+				setTimeout(function(){$("#direccion").focus()});
 			})
 		}
 		else if($scope.telefono == "" || $scope.telefono == undefined)
 		{
 			constantes.alerta("Atención","El campo teléfono de la empresa es requerido y no debe contener letras","warning",function(){
-				$("#telefono").focus();
+				setTimeout(function(){$("#telefono").focus()});
 			})
 		}
 		else if($scope.telefono != "" && isNaN($scope.telefono))
 		{
 			constantes.alerta("Atención","El campo teléfono sólo puede contener números","warning",function(){
-				$("#telefono").focus();
+				setTimeout(function(){$("#telefono").focus()});
 			})
 		}
 		else if($scope.email == "" || $scope.email == undefined)
 		{
 			constantes.alerta("Atención","El campo correo electrónico de la empresa es requerido y debe ser un correo válido","warning",function(){
-				$("#email").focus();
+				setTimeout(function(){$("#email").focus()});
 			})
 		}
 		else if($scope.email != "" && !constantes.validaMail($scope.email))
 		{
 			constantes.alerta("Atención","Debe escribir un correo electrónico válido","warning",function(){
-				$("#email").focus();
+				setTimeout(function(){$("#email").focus()});
 			})
 		}
 		else if($scope.departamento == "" || $scope.departamento == undefined)
 		{
 			constantes.alerta("Atención","Seleccione el departamento donde está ubicada su empresa","warning",function(){
-				$("#departamento").focus();
+				setTimeout(function(){$("#departamento").focus()});
 			})
 		}
 		else if($scope.ciudad == "" || $scope.ciudad == undefined)
 		{
 			constantes.alerta("Atención","Seleccione la ciudad donde está ubicada su empresa","warning",function(){
-				$("#ciudad").focus();
+				setTimeout(function(){$("#ciudad").focus()});
 			})
 		}
 		else if($scope.clave == "" || $scope.clave == undefined)
 		{
 			constantes.alerta("Atención","Escriba una clave para su cuenta","warning",function(){
-				$("#clave").focus();
+				setTimeout(function(){$("#clave").focus()});
 			})
 		}
 		else if($scope.rclave == "" || $scope.rclave == undefined)
 		{
 			constantes.alerta("Atención","Debe volver a escribir la clave de ingresó anteriormente","warning",function(){
-				$("#rclave").focus();
+				setTimeout(function(){$("#rclave").focus()});
 			})
 		}
 		else if($scope.clave != "" && $scope.rclave != "" && $scope.rclave != $scope.clave)
 		{
 			constantes.alerta("Atención","Las contraseñas no coinciden, por favor verifique.","warning",function(){
-				$("#rclave").focus();
+				setTimeout(function(){$("#rclave").focus()});
 			})
 		}
 		else if(!$("#terminos").prop('checked'))
 		{
 			constantes.alerta("Atención","Debe leer y aceptar los términos y condiciones","warning",function(){
-				$("#terminos").focus();
+				setTimeout(function(){$("#terminos").focus()});
 			})
 		}
 		else
@@ -116,7 +128,7 @@ project.controller('registroEmpresas', function($scope,$http,$q,constantes)
 					if(json.continuar == 1)
 					{
 						constantes.alerta("Atención",json.mensaje,"success",function(){
-
+							document.location = $scope.config.apiUrl;
 						})
 					}
 					else

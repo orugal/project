@@ -9,6 +9,19 @@ class LogicaGeneral  {
     public function getCiudades($where)
     {
         $listaCiudades = $this->ci->dbGeneral->getCiudades($where);
-        return $listaCiudades;
+        if(count($listaCiudades) > 0)
+        {
+            $respuesta = array("mensaje"=>"Listado de ciudades",
+                              "continuar"=>1,
+                              "datos"=>$listaCiudades);            
+        }
+        else
+        {
+            $respuesta = array("mensaje"=>"No existen ciudades",
+                              "continuar"=>0,
+                              "datos"=>"");    
+
+        }
+        return $respuesta;
     }
  }

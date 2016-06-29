@@ -36,7 +36,7 @@
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/sweetalert.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/angular.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url()?>res/js/registro/app.js"></script>
+		<script type="text/javascript" src="<?php echo base_url()?>res/js/app.js"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/factory.js"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/registro/controller.js"></script>
 		<script type="text/javascript" src="<?php echo base_url()?>res/js/material.min.js"></script>

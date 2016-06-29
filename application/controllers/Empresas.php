@@ -11,10 +11,17 @@ class Empresas extends CI_Controller
     }
 	public function index()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}	
 	public function menuEmpresa()
 	{
@@ -23,45 +30,87 @@ class Empresas extends CI_Controller
 	}
 	public function areas()	
 	{
-		$salida['titulo'] = lang("titulo")." - Áreas";
-		$salida['centro'] = "empresas/areas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo")." - Áreas";
+			$salida['centro'] = "empresas/areas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function personas()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/personas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/personas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function proyectos()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/tareas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/tareas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function infoProyecto()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/tareas/infoProyecto";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/tareas/infoProyecto";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function reportes()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function configuracion()	
 	{
-		$salida['titulo'] = lang("titulo");
-		$salida['centro'] = "empresas/home";
-		$salida['menu']   =  $this->menuEmpresa();
-		$this->load->view("empresas/index",$salida);
+		if(validaIngreso())
+		{
+			$salida['titulo'] = lang("titulo");
+			$salida['centro'] = "empresas/home";
+			$salida['menu']   =  $this->menuEmpresa();
+			$this->load->view("empresas/index",$salida);
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 }
 ?>

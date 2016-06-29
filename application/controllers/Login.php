@@ -1,41 +1,39 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Registro extends CI_Controller 
+class Login extends CI_Controller 
 {
 	function __construct() 
     {
         parent::__construct();
-        $this->load->model("registro/LogicaRegistro", "logicaReg");
         $this->load->model("general/LogicaGeneral", "logicaGen");
+        $this->load->model("login/LogicaLogin", "logicaLogin");
        	$this->load->helper('language');
     	$this->lang->load('spanish');
     }
 	public function index()	
 	{
 		$this->login();
+		$_SESSION['inproject']	=	1;//esta sesión se activa para indicar que la aplicación esta arriba.
 	}
-	public function registroEmpresas()
+	public function logout()
 	{
-		$salida['titulo'] = lang("tituloRegistroEmp");
-		$salida['centro'] = "registro/empresas";
-		$salida['listaDeptos']	=		getDepartamentos('057',"ARRAY");
-		$this->load->view("registro/index",$salida);
+		unset($_SESSION['project']);
+		header('Location:'.base_url()."login");
 	}
-	public function registroPersonas()
+	public function login()
 	{
-		$salida['titulo'] = lang("tituloRegistroEmp");
-		$salida['centro'] = "registro/personas";
-		$this->load->view("registro/index",$salida);
+		$salida['titulo'] = lang("titulo");
+		$salida['centro'] = "login/home";
+		$this->load->view("login/index",$salida);
 	}
-
 	//Funciones para el AJAX
-	public function getCiudades()
+	public function getPicture()
 	{
 		if(validaInApp("web"))//esta validación me hará consultas más seguras
 		{
-			extract($_POST);
-			$ciudades =  getCiudades('057',$idDepto,"JSON");
-			echo $ciudades;
+			//busco la foto con la palabra que envien
+			$imagen = $this->logicaLogin->getPictureLogin($_POST);
+			echo json_encode($imagen);
 		}
 		else
 		{
@@ -46,12 +44,14 @@ class Registro extends CI_Controller
             echo json_encode($respuesta); 
 		}
 	}
-	public function insertaEmpresas()
+	public function verificaIngreso()
 	{
+		//súper acceso a la app
 		if(validaInApp("web"))//esta validación me hará consultas más seguras
 		{
-			$procesoEmpresa = $this->logicaReg->insertaEmpresa($_POST);
-			echo json_encode($procesoEmpresa);
+			//busco la foto con la palabra que envien
+			$logueo = $this->logicaLogin->getLoginUsuario($_POST);
+			echo json_encode($logueo);
 		}
 		else
 		{
@@ -60,7 +60,7 @@ class Registro extends CI_Controller
                               "datos"=>""); 
 
             echo json_encode($respuesta); 
-		}
+		}	
 	}
 }
 ?>

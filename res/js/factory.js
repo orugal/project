@@ -45,7 +45,14 @@ project.factory("constantes", function()
 					text: mensaje, 
 					type: tipo,  
 					html: true 
-				},callback()
+				},
+				function(isConfirm)
+				{
+					if(isConfirm)
+					{
+						callback()
+					}
+				}
 			);
 		},
 		confirmacion:function(titulo,mensaje,tipo,callback){

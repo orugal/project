@@ -12,13 +12,20 @@ class BaseDatosRegistro extends CI_Model {
         $this->load->database();
         $this->tableEmpresas               = "app_empresas"; 
         $this->tablePersonas               = "app_personas"; 
-        $this->tableClaveEmpresa           = "app_loginempresa"; 
+        $this->tableClaveEmpresa           = "app_login"; 
         $this->tablePagosEmpresa           = "app_estadopago"; 
     }
-    public function getHuellas($where){
+    public function verificaEmpresa($where,$tabla){
         $this->db->select("*");
         $this->db->where($where);
-        $this->db->from($this->tableHuella);
+        if($tabla == "empresas")
+        {
+            $this->db->from($this->tableEmpresas);
+        }
+        else
+        {
+             $this->db->from($this->tablePersonas);
+        }
         $id = $this->db->get();
         //print_r($this->db->last_query());die();
         return $id->result_array();

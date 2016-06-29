@@ -8,8 +8,8 @@
         <div class="row">
           <div class="col-lg-6">
             
-                 <div class="form-group">
-                  <input tabindex="1" id="nombre" name="nombre" ng-model="nombre" class="ember-view ember-text-field form-control login-input" placeholder="<?php echo lang("plh_nombre_empresas") ?>" type="text">
+                 <div class="form-group" id="cajaNombreEmpresa">
+                  <input tabindex="1" id="nombre" name="nombre" ng-model="nombre" class="ember-view ember-text-field form-control login-input" placeholder="<?php echo lang("plh_nombre_empresas") ?>"  type="text">
                   <p class="help-block"><?php echo lang('txtInfo1') ?></p>
                 </div>
                 <div class="form-group">
@@ -38,7 +38,7 @@
                 <div class="form-group">
                   <select tabindex="6" id="ciudad" name="ciudad" ng-model="ciudad"   class="ember-view ember-text-field form-control login-input-pass">
                       <option value=""><?php echo lang('lbl_sel_ciudad') ?></option>
-                      <option ng-repeat="ciu in ciudadesSelect" value="{{ciu.ID_CIUDAD}}">{{ciu.NOMBRE}}</option>
+                      <option ng-repeat="ciu in ciudadesSelect.datos" value="{{ciu.ID_CIUDAD}}">{{ciu.NOMBRE}}</option>
                   </select>
                   <p class="help-block"><?php echo lang('txtInfo6') ?></p>
                 </div>

@@ -1,7 +1,7 @@
 
-var wannabe = angular.module("wannabe",[]);
+var project = angular.module("projectRegistro",[]);
 
 //creamos nuestra factoría
-wannabe.factory('lenguaje', function(){
+project.factory('lenguaje', function(){
     
 });

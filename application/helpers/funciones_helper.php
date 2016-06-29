@@ -46,16 +46,16 @@ function sendMail($para,$asunto,$mensaje)
     $ci->load->library('email');
     $ci->load->model("general/baseDatosGral","baseGeneral");
     $ci->email->initialize(array(
-      'protocol' => 'mail',
-      'smtp_host' => 'mail.wannabe.com.co',
+      'protocol' => 'smtp',
+      'smtp_host' => 'smtpout.secureserver.net',
       'smtp_user' => 'info@wannabe.com.co',
       'smtp_pass' => 'Jg$E3D+u',
-      'smtp_port' => 587,
+      'smtp_port' => 465,
       'crlf' => "\r\n",
       'newline' => "\r\n",
       'mailtype'=>"html"
     ));
-    $ci->email->from('info@wannabe.com.co', NOMBRE_APP);
+    $ci->email->from('noreply@tucomunidad.co', NOMBRE_APP);
     $ci->email->to($para);
     //$ci->  email->cc('another@another-example.com');
     //$ci->  email->bcc('them@their-example.com');
@@ -205,14 +205,45 @@ function label($label,$lang)
 
 function validaIngreso()
 {
+    $salida =   false;
     if(isset($_SESSION['project']))
     {
-
+        $salida = true;
     }
     else
     {
-        
+        $salida = false;
     }
+    return $salida;
+}
+
+/*Esta función es la que me va a permitir saber si la app la estan consultando 
+* de manera segura o estan intentando acceder a los metodos de ajax por otro medio
+* @author Farez Prieto
+* @input string $app Variable que me dice el tipo de app que consulta
+* web   = Página web
+* movil = Dispositivo móvil
+* @return boolean
+*/
+function validaInApp($app="web")
+{
+    $salida = false;
+    if($app == "web")//via web
+    {
+        if(isset($_SESSION['inproject']))//esta validación me hará consultas más seguras
+        {
+            $salida = true;
+        }
+        else
+        {
+            $salida = false;
+        }
+    }
+    elseif($app == "movil")//via movil
+    {
+        $salida = false;
+    }
+    return $salida;
 }
 
 function sumaDias($fechaSuma,$dias)
@@ -256,7 +287,10 @@ function getCiudades($idPais="057",$idDepto,$salida="ARRAY"){
      }
      else if($salida == "JSON")
      {
-        return json_encode($listaCiudades);  
+         $respuesta = array("mensaje"=>"Listado de Ciudades",
+                            "continuar"=>1,
+                            "datos"=>$listaCiudades);    
+        echo json_encode($respuesta);  
      }
 }
 
