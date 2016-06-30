@@ -1238,7 +1238,7 @@ CREATE TABLE `app_empresas` (
 
 /*Data for the table `app_empresas` */
 
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Singularcom S.A.','Cra 81 # 11 09','3114881738',1,11,NULL,NULL,NULL,NULL,'logo.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,0);
+insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Singularcom S.A.','Cra 81 # 11 09','3114881738',1,11,NULL,NULL,NULL,NULL,'logo.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,1);
 insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (5,'It Soluciones','Cra 81 # 11 09','23123123213213',1,8,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'isarmiento@itsoluciones.net',NULL,1,0);
 insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (6,'fgdfgdfgf','dfgdfgdfg','45345345',1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kyodfgdfgf@fsdfdf.vom',NULL,1,0);
 
@@ -1249,6 +1249,7 @@ DROP TABLE IF EXISTS `app_estadopago`;
 CREATE TABLE `app_estadopago` (
   `idPago` bigint(20) NOT NULL AUTO_INCREMENT,
   `idEmpresa` bigint(20) DEFAULT NULL,
+  `esDemo` int(11) DEFAULT '1',
   `descripcion` text,
   `fechaInicio` datetime DEFAULT NULL,
   `fechaFin` datetime DEFAULT NULL,
@@ -1260,12 +1261,12 @@ CREATE TABLE `app_estadopago` (
 
 /*Data for the table `app_estadopago` */
 
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (1,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 10:58:04','2016-09-27 10:58:04',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (2,2,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 11:01:04','2016-09-27 11:01:04',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (3,3,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 11:02:22','2016-09-27 11:02:22',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (4,4,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 12:28:37','2016-09-27 12:28:37',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (5,5,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:15:51','2016-09-27 13:15:51',90,1,0);
-insert into `app_estadopago` (`idPago`,`idEmpresa`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (6,6,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:32:12','2016-09-27 13:32:12',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (1,1,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 10:58:04','2016-09-27 10:58:04',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (2,2,1,'pago','2016-06-29 11:01:04','2016-09-27 11:01:04',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (3,3,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 11:02:22','2016-09-27 11:02:22',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (4,4,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 12:28:37','2016-09-27 12:28:37',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (5,5,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:15:51','2016-09-27 13:15:51',90,1,0);
+insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fechaInicio`,`fechaFin`,`cantComprada`,`estado`,`eliminado`) values (6,6,1,'Demo Inicial de 90 días para que pruebes la aplicación.','2016-06-29 13:32:12','2016-09-27 13:32:12',90,1,0);
 
 /*Table structure for table `app_login` */
 
