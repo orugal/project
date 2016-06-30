@@ -175,13 +175,6 @@ function generacodigo(){
     return $pass;
 }
 
-
-function dias_transcurridos($fecha_i,$fecha_f)
-{
-    $dias   = (strtotime($fecha_i)-strtotime($fecha_f))/86400;
-    $dias   = abs($dias); $dias = floor($dias);     
-    return $dias;
-}
  
 function cabeza()
 {
@@ -292,6 +285,51 @@ function getCiudades($idPais="057",$idDepto,$salida="ARRAY"){
                             "datos"=>$listaCiudades);    
         echo json_encode($respuesta);  
      }
+}
+
+
+function validaDiasLicencia()
+{   
+    if($_SESSION['tucomunidad']['trial'] == 1)
+    {
+        $vencimiento    =    vencimiento($_SESSION['tucomunidad']['diasComprados'],date("Y-m-d",strtotime($_SESSION['tucomunidad']['fechaActivacion'])));
+        $vencimiento['licencia'] = 1;//trial
+        $vencimiento['licenciaTxt'] = "Prueba gratis";//trial
+    }
+    else
+    {
+        if($_SESSION['tucomunidad']['pago'] == 1)
+        {
+             $vencimiento    =    vencimiento($_SESSION['tucomunidad']['diasComprados'],date("Y-m-d",strtotime($_SESSION['tucomunidad']['fechaActivacion'])));
+             $vencimiento['licencia'] = 2;//compra
+             $vencimiento['licenciaTxt'] = "Compra ".$vencimiento['diasComprados']." Días";//trial
+        }
+        else
+        {
+            echo "probablemente no tenga derecho de ingresar.";
+        }
+    }
+    return $vencimiento;
+}
+
+function vencimiento($diasCompra,$fechaAct)
+{
+    $diasTrans      = dias_transcurridos(date("Y-m-d",strtotime($fechaAct)),date("Y-m-d"));
+    $diasRestantes  = ($diasCompra - $diasTrans);
+    $salida['diasComprados']        =  $diasCompra; 
+    $salida['diasTranscurridos']    =  $diasTrans; 
+    $salida['diasRestantes']        =  $diasRestantes; 
+    $salida['aviso']                =  ($salida['diasRestantes'] <= 5)?1:0; 
+    $salida['vencido']              =  ($salida['diasRestantes'] <= 0)?1:0; 
+    $salida['por']                  =  (($diasTrans * 100) / $diasCompra); 
+    return $salida;
+}
+
+function dias_transcurridos($fecha_i,$fecha_f)
+{
+    $dias   = (strtotime($fecha_i)-strtotime($fecha_f))/86400;
+    $dias   = abs($dias); $dias = floor($dias);     
+    return $dias;
 }
 
 function sendNotifi($idPersona,$mensaje,$titulo)

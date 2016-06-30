@@ -6,6 +6,7 @@ class BaseDatosGral extends CI_Model {
     private $tableDeptos                 =   "";
     private $tableCiudad                 =   "";
     private $tableMails                  =   "";
+    private $tableInfoPago               =   "";
     public function __construct() 
     {
         parent::__construct();
@@ -13,6 +14,7 @@ class BaseDatosGral extends CI_Model {
         $this->tableDeptos               = "app_departamentos"; 
         $this->tableCiudad               = "app_ciudades"; 
         $this->tableMails                = "app_mails";
+        $this->tableInfoPago             = "app_estadopago";
     }
     public function getDepartamentos($where)
     {
@@ -28,6 +30,16 @@ class BaseDatosGral extends CI_Model {
         $this->db->select("*");
         $this->db->where($where);
         $this->db->from($this->tableCiudad);
+        $id = $this->db->get();
+        //print_r($this->db->last_query());die();
+        return $id->result_array();
+    }
+    public function getInfoPago($where)
+    {
+        $this->db->select("*");
+        $this->db->where($where);
+        $this->db->from($this->tableInfoPago);
+        $this->db->order_by("idPago","DESC");
         $id = $this->db->get();
         //print_r($this->db->last_query());die();
         return $id->result_array();
