@@ -11,7 +11,14 @@ class Inicio extends CI_Controller
     }
 	public function index()	
 	{
-		header('Location:'.base_url()."login");
+		if(isset($_SESSION['project']))
+		{
+			header('Location:'.base_url()."App");
+		}
+		else
+		{
+			header('Location:'.base_url()."login");
+		}
 	}
 	public function homeEmpresa()
 	{

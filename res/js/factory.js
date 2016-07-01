@@ -44,7 +44,8 @@ project.factory("constantes", function()
 					title: titulo,   
 					text: mensaje, 
 					type: tipo,  
-					html: true 
+					html: true,
+					confirmButtonText: "Aceptar",
 				},
 				function(isConfirm)
 				{
@@ -64,7 +65,8 @@ project.factory("constantes", function()
 				  confirmButtonColor: "#DD6B55",
 				  confirmButtonText: "Continuar",
 				  closeOnConfirm: false,
-  				  showLoaderOnConfirm: true
+  				  showLoaderOnConfirm: true,
+				  confirmButtonText: "Continuar",
 				},
 				function(isConfirm){
 					if(isConfirm)

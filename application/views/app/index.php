@@ -8,7 +8,7 @@
    Desarrollado por  @orugal
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="projectRegistro">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,12 +52,14 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>res/js/bootstrap.min.js"></script>
     <!-- Morris Charts JavaScript -->
-    <script src="<?php echo base_url() ?>res/js/plugins/morris/raphael.min.js"></script>
-    <script src="<?php echo base_url() ?>res/js/plugins/morris/morris.min.js"></script>
-    <script src="<?php echo base_url() ?>res/js/plugins/morris/morris-data.js"></script>
+
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/angular.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/material.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/ripples.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/validator.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/app.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/factory.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/areas/controller.js"></script>
     <script type="text/javascript">
         var configLogin =  {
             apiUrl: '<?php echo base_url()?>'

@@ -57,4 +57,7 @@ $lang['reg_btn_cancelar']		= " Cancelar";
 $lang['msg_reg_emp1']			= " Oops!! Esto es bastante embarazoso, ha habido un error interno que no ha permitido registrar la empresa, por favor intentelo de nuevo más tarde.";
 
 
+//Zona de las areas
+$lang['tituloArea']				= "Áreas";
+
 ?>

@@ -312,6 +312,10 @@ function validaDiasLicencia()
     return $vencimiento;
 }
 
+/*
+* @input int $diasCompra días que compró el usuario
+* @input string $fechaAct fecha del día en que realizó la compra ó el demo
+*/
 function vencimiento($diasCompra,$fechaAct)
 {
     $diasTrans      = dias_transcurridos(date("Y-m-d",strtotime($fechaAct)),date("Y-m-d"));

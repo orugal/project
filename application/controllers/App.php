@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Empresas extends CI_Controller 
+class App extends CI_Controller 
 {
 	function __construct() 
     {
@@ -13,29 +13,32 @@ class Empresas extends CI_Controller
 	{
 		if(validaIngreso())
 		{
+			$opc = "home";
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/home";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$salida['centro'] = "app/home";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
 			header('Location:'.base_url()."login");
 		}
 	}	
-	public function menuEmpresa()
+	public function menuEmpresa($opc)
 	{
-		$salida['menu']   = "empresas/menu";
-		return $this->load->view("empresas/menu",$salida,true);
+		$salida['menu']   = "app/menu";
+		$salida['opc']    = $opc;
+		return $this->load->view("app/menu",$salida,true);
 	}
 	public function areas()	
 	{
 		if(validaIngreso())
 		{
-			$salida['titulo'] = lang("titulo")." - Áreas";
-			$salida['centro'] = "empresas/areas/home";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$opc 			  = "areas"	;//persistencia del menú
+			$salida['titulo'] = lang("titulo")." - ".lang("tituloArea");
+			$salida['centro'] = "app/areas/home";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
@@ -46,10 +49,11 @@ class Empresas extends CI_Controller
 	{
 		if(validaIngreso())
 		{
+			$opc 			  = "personas"	;//persistencia del menú
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/personas/home";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$salida['centro'] = "app/personas/home";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
@@ -60,10 +64,12 @@ class Empresas extends CI_Controller
 	{
 		if(validaIngreso())
 		{
+
+			$opc 			  = "proyectos"	;//persistencia del menú
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/tareas/home";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$salida['centro'] = "app/tareas/home";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
@@ -74,10 +80,11 @@ class Empresas extends CI_Controller
 	{
 		if(validaIngreso())
 		{
+			$opc 			  = "proyectos"	;//persistencia del menú
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/tareas/infoProyecto";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$salida['centro'] = "app/tareas/infoProyecto";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
@@ -88,10 +95,11 @@ class Empresas extends CI_Controller
 	{
 		if(validaIngreso())
 		{
+			$opc 			  = "reportes"	;//persistencia del menú
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/home";
-			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$salida['centro'] = "app/home";
+			$salida['menu']   =  $this->menuEmpresa($opc);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{
@@ -103,9 +111,9 @@ class Empresas extends CI_Controller
 		if(validaIngreso())
 		{
 			$salida['titulo'] = lang("titulo");
-			$salida['centro'] = "empresas/home";
+			$salida['centro'] = "app/home";
 			$salida['menu']   =  $this->menuEmpresa();
-			$this->load->view("empresas/index",$salida);
+			$this->load->view("app/index",$salida);
 		}
 		else
 		{

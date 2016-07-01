@@ -7,6 +7,8 @@ class BaseDatosGral extends CI_Model {
     private $tableCiudad                 =   "";
     private $tableMails                  =   "";
     private $tableInfoPago               =   "";
+    private $tableEmpresas               =   "";
+    private $tablePersonas               =   "";
     public function __construct() 
     {
         parent::__construct();
@@ -15,6 +17,8 @@ class BaseDatosGral extends CI_Model {
         $this->tableCiudad               = "app_ciudades"; 
         $this->tableMails                = "app_mails";
         $this->tableInfoPago             = "app_estadopago";
+        $this->tableEmpresas             = "app_empresas";
+        $this->tablePersonas             = "app_personas";
     }
     public function getDepartamentos($where)
     {
@@ -44,7 +48,24 @@ class BaseDatosGral extends CI_Model {
         //print_r($this->db->last_query());die();
         return $id->result_array();
     }
-
+    public function getInfoEmpresa($where)
+    {
+        $this->db->select("*");
+        $this->db->where($where);
+        $this->db->from($this->tableEmpresas);
+        $id = $this->db->get();
+        //print_r($this->db->last_query());die();
+        return $id->result_array();
+    }
+    public function getInfoPersonas($where)
+    {
+        $this->db->select("*");
+        $this->db->where($where);
+        $this->db->from($this->tablePersonas);
+        $id = $this->db->get();
+        //print_r($this->db->last_query());die();
+        return $id->result_array();
+    }
     public function envioMailDB($dataInserta)
     {
         $this->db->insert($this->tableMails,$dataInserta);

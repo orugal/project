@@ -54,9 +54,23 @@ project.controller('login', function($scope,$http,$q,constantes)
 				constantes.consultaApi(controlador,parametros,function(json){
 					if(json.continuar == 1)
 					{
-						constantes.alerta("Atención",json.mensaje,"success",function(){
+						//valido la zona
+						if(json.zona == 1) //zona de pago
+						{
+							constantes.alerta("Atención",json.mensaje,"warning",function(){
+								document.location = $scope.config.apiUrl+"Pago";
+							})
+						}
+						else if(json.zona == 2)//ingreso
+						{
+							document.location = $scope.config.apiUrl+"App";
+						}
+						else
+						{
+							constantes.alerta("Atención",json.mensaje,"success",function(){
 							
-						})
+							})
+						}
 					}
 					else
 					{

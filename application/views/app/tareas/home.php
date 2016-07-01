@@ -81,7 +81,7 @@
                                         <td  class="text-center">
                                             <!--<a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>-->
                                             <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                            <a href="<?php echo base_url()?>empresas/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
+                                            <a href="<?php echo base_url()?>App/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
                                         </td>
                                     </tr>
                                     <tr class="success">
@@ -92,7 +92,7 @@
                                         <td  class="text-center">
                                             <!--<a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>-->
                                             <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                            <a href="<?php echo base_url()?>empresas/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
+                                            <a href="<?php echo base_url()?>App/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -103,7 +103,7 @@
                                         <td  class="text-center">
                                             <!--<a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>-->
                                             <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                            <a href="<?php echo base_url()?>empresas/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
+                                            <a href="<?php echo base_url()?>App/infoProyecto" title="Ver tarea" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -12,12 +12,22 @@ class Login extends CI_Controller
     }
 	public function index()	
 	{
-		$this->login();
-		$_SESSION['inproject']	=	1;//esta sesión se activa para indicar que la aplicación esta arriba.
+
+		if(isset($_SESSION['project']))
+		{
+			header('Location:'.base_url()."App");
+		}
+		else
+		{
+			$this->login();
+			$_SESSION['inproject']	=	1;//esta sesión se activa para indicar que la aplicación esta arriba.
+		}
+		
 	}
 	public function logout()
 	{
 		unset($_SESSION['project']);
+		unset($_SESSION['pago']);
 		header('Location:'.base_url()."login");
 	}
 	public function login()
