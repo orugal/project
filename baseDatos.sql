@@ -27,9 +27,16 @@ CREATE TABLE `app_areas` (
   `estado` int(11) DEFAULT '1',
   `eliminado` int(11) DEFAULT '0',
   PRIMARY KEY (`idArea`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_areas` */
+
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (1,'Desarrollo',1,1,0);
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (2,'Soporte técnico',1,1,0);
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (3,'Mercadeo',1,1,0);
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (4,'Recursos Humanos',1,1,0);
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (5,'Archivo',1,1,0);
+insert into `app_areas` (`idArea`,`nombreArea`,`idEmpresa`,`estado`,`eliminado`) values (6,'Contabilidad',1,1,0);
 
 /*Table structure for table `app_ciudades` */
 
@@ -1238,7 +1245,7 @@ CREATE TABLE `app_empresas` (
 
 /*Data for the table `app_empresas` */
 
-insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Singularcom S.A.','Cra 81 # 11 09','3114881738',1,11,NULL,NULL,NULL,NULL,'logo.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,1);
+insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Orugal Corp','Cra 81 # 11 09','3114881738',1,11,NULL,NULL,NULL,NULL,'logo.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,1);
 insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (5,'It Soluciones','Cra 81 # 11 09','23123123213213',1,8,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'isarmiento@itsoluciones.net',NULL,1,0);
 insert into `app_empresas` (`idEmpresa`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (6,'fgdfgdfgf','dfgdfgdfg','45345345',1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'kyodfgdfgf@fsdfdf.vom',NULL,1,0);
 
