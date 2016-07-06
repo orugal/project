@@ -6,26 +6,63 @@
 project.controller('areas', function($scope,$http,$q,constantes)
 {
 	$scope.listaAreas = [];
+	$scope.nombreArea = $("#nombreArea").val();
 	$scope.areasInit = function()
 	{
 		$scope.config 			=  configLogin;//configuración global
+		//cargo las areas
+		$scope.getAreas();
 	}
-	$scope.getPicture = function()
+	$scope.getAreas = function()
 	{
-		var controlador = 	$scope.config.apiUrl+"login/getPicture";
+		var controlador = 	$scope.config.apiUrl+"Areas/getAreas";
 		var parametros  = "palabra="+$scope.usuario;
 		constantes.consultaApi(controlador,parametros,function(json){
 			if(json.continuar == 1)
 			{
-				if(json.datos[0].icono != "")
-				{
-					$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/fotos/"+json.tipo+"/"+json.datos[0].idEmpresa+"/"+json.datos[0].icono;
-				}
+				$scope.listaAreas		=	json.datos;
+				$scope.$digest();
 			}
 			else
 			{
-				$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/img/user.jpg";
+				constantes.alerta("Atención",json.mensaje,"warning",function(){})
 			}
 		});
+	}
+	$scope.agregarNuevaArea = function()
+	{
+		//valido campos
+		if($scope.nombreArea == "" || $scope.nombreArea == undefined)
+		{
+			constantes.alerta("Atención","Recuerde que debe escribir el nombre del área que va a crear","warning",function(){
+				setTimeout(function(){$("#nombreArea").focus()});
+			})
+		}
+		else
+		{
+			constantes.confirmacion("Atención","Está a punto de crear un área de servicio, desea continuar","info",function(){
+				//se inicia el login
+				var controlador = 	$scope.config.apiUrl+"Areas/creaNuevaArea";
+				var parametros  = 	$("#formAreas").serialize();
+				constantes.consultaApi(controlador,parametros,function(json){
+					if(json.continuar == 1)
+					{
+						constantes.alerta("Atención",json.mensaje,"success",function(){
+							$('#modalArea').modal('hide');
+							$scope.getAreas();
+							$("#nombreArea").val("");
+						})
+						
+					}
+					else
+					{
+						constantes.alerta("Atención",json.mensaje,"warning",function(){
+							$('#modalArea').modal('hide');
+							$("#nombreArea").val("");
+						})
+					}
+				});
+			})
+		}
 	}
 });

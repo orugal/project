@@ -26,6 +26,7 @@
     <link href="<?php echo base_url() ?>res/css/plugins/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?php echo base_url() ?>res/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url()?>res/css/sweetalert.css" />
     <link rel="stylesheet" href="<?php echo base_url()?>res/css/bootstrap-material-design.min.css" />
     <link rel="stylesheet" href="<?php echo base_url()?>res/css/ripples.min.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,8 +48,9 @@
         <!--Fin Div Central-->
     </div>
     <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="<?php echo base_url() ?>res/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/sweetalert.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>res/js/bootstrap.min.js"></script>
     <!-- Morris Charts JavaScript -->

@@ -16,6 +16,9 @@ $lang['tituloLogin'] = "Bienvenido a Project";
 
 
 
+$lang['reg_btn_crea']			= "Crear";
+$lang['reg_btn_cancelar']		= " Cancelar";
+
 
 /*Form Login*/
 $lang['tituloBienvenida'] 	= "Inicia Sesión";
@@ -52,12 +55,15 @@ $lang['txtInfo6']				= " En que ciudad del país está tu empresa.";
 $lang['txtInfo7']				= " Por favor escriba una contraseña para su cuenta.";
 $lang['txtInfo8']				= " Debe volver a escribir la contraseña que ingresó anteriormente.";
 $lang['reg_btn_registroEm']		= " Registrar";
-$lang['reg_btn_cancelar']		= " Cancelar";
 
 $lang['msg_reg_emp1']			= " Oops!! Esto es bastante embarazoso, ha habido un error interno que no ha permitido registrar la empresa, por favor intentelo de nuevo más tarde.";
 
 
 //Zona de las areas
 $lang['tituloArea']				= "Áreas";
+$lang['tituloCreaArea']			= "Crear nueva área";
+$lang['plh_CreaArea']			= "Escriba el nombre de la nueva área";
+$lang['txtInfoArea1']			= "Este nombre identificará el área que se va a crear";
+
 
 ?>

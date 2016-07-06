@@ -5,7 +5,7 @@ class App extends CI_Controller
 	function __construct() 
     {
         parent::__construct();
-        $this->load->model("principal/LogicaPropiedades", "logica");
+        //$this->load->model("principal/LogicaAreas", "logica");
        	$this->load->helper('language');
     	$this->lang->load('spanish');
     }
