@@ -58,7 +58,7 @@ project.factory("constantes", function()
 				}
 			);
 		},
-		confirmacion:function(titulo,mensaje,tipo,callback){
+		confirmacion:function(titulo,mensaje,tipo,callback,close){
 			swal({
 				  title: titulo,
 				  text: mensaje,
@@ -66,7 +66,7 @@ project.factory("constantes", function()
 				  showCancelButton: true,
 				  confirmButtonColor: "#009688",
 				  confirmButtonText: "Continuar",
-				  closeOnConfirm: false,
+				  closeOnConfirm: (close == undefined)?false:true,
   				  showLoaderOnConfirm: true,
   				  animation: "slide-from-top",
 				  confirmButtonText: "Continuar",

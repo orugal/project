@@ -65,4 +65,26 @@ project.controller('areas', function($scope,$http,$q,constantes)
 			})
 		}
 	}
+	$scope.eliminaArea = function(results,index)
+	{
+		constantes.confirmacion("Atención","Está a punto de eliminar un área de servicio, desea continuar?","warning",function(){
+			var areaBorrar = results[index].idArea;
+			//se inicia el login
+			var controlador = 	$scope.config.apiUrl+"Areas/borrarArea";
+			var parametros  = 	"idArea="+Math.round(Math.random()*(100-999)+parseInt(999))+areaBorrar;
+			constantes.consultaApi(controlador,parametros,function(json){
+				if(json.continuar == 1)
+				{
+					swal.close();
+					$scope.q = "";
+					$scope.getAreas();
+					$scope.$digest();
+				}
+				else
+				{
+					constantes.alerta("Atención",json.mensaje,"warning",function(){})
+				}
+			});
+		})
+	}
 });

@@ -39,5 +39,20 @@ class Areas extends CI_Controller
 		}
         echo json_encode($respuesta);
 	}
+	public function borrarArea()
+	{
+		if(validaInApp("web"))//esta validación me hará consultas más seguras
+		{
+			$respuesta = $this->logicaAreas->borrarArea($_POST);
+		}
+		else
+		{
+			$respuesta = array("mensaje"=>"Acceso no admitido.",
+                              "continuar"=>0,
+                              "datos"=>""); 
+
+		}
+        echo json_encode($respuesta);
+	}
 }
 ?>

@@ -65,6 +65,16 @@
         </div>
     </div>
     <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="exampleInputName2">Filtrar: </label>
+                <input type="text" class="form-control" ng-model="q" placeholder="">
+              </div>
+            </form>
+        </div>
+    </div>
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
@@ -80,7 +90,6 @@
             </div>
 
             <div class="table-responsive" ng-if="listaAreas.length > 0 ">
-            
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
@@ -92,18 +101,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="areas in listaAreas">
+                        <tr ng-repeat="areas in listaAreas | filter:q as results">
                             <td>{{areas.nombreArea}}</td>
                             <td class="text-center">10</td>
                             <!--<td class="text-center">32.3%</td>-->
                             <td class="text-center">321</td>
                             <td  class="text-center">
-                                <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">info</i></a>
-                                <a href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
+                                <!--<a href="javascript:void(0)" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">info</i></a>-->
+                                <a ng-click="eliminaArea(results,$index)" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <li class="animate-repeat" ng-if="results.length == 0">
+                  <strong>No hay registros encontrados con la palabra buscada...</strong>
+                </li>
             </div>
         </div>
     </div>

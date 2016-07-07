@@ -46,4 +46,30 @@ class LogicaAreas  {
         }
         return $respuesta;
     }
+    public function borrarArea($data)
+    {
+        extract($data);
+        //elimino los primeros 3 caracteres para saber cual es el id real que voy a eliminar
+        $idArea    =   substr($idArea,3,strlen($idArea));
+
+        $where['idArea']         = $idArea;
+        $where['idEmpresa']      = $_SESSION['project']['login']['idGeneral'];
+
+        $datos['eliminado']      = 1;
+
+        $listadoAreas = $this->ci->dbAreas->borrarArea($where,$datos);
+        if($listadoAreas > 0)
+        {
+            $respuesta = array("mensaje"=>"Área Borrada exitosamente.",
+                          "continuar"=>1,
+                          "datos"=>""); 
+        }
+        else
+        {
+            $respuesta = array("mensaje"=>"No se pudo borrar el área, por favor intentelo de nuevo más tarde.",
+                          "continuar"=>0,
+                          "datos"=>""); 
+        }
+        return $respuesta;
+    }
  }

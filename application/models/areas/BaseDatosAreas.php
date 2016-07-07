@@ -37,6 +37,16 @@ class BaseDatosAreas extends CI_Model {
         //print_r($this->db->last_query());die();
         return $this->db->insert_id();
     }
+
+    public function borrarArea($where,$dataInserta)
+    {
+        $this->db->where($where);
+        $this->db->update($this->tableAreas,$dataInserta);
+        //print_r($this->db->last_query());die();
+        return $this->db->affected_rows();
+    }
+
+    
 }
 
 ?>
