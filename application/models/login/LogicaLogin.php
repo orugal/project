@@ -20,26 +20,30 @@ class LogicaLogin  {
         $buscaEmpresa = $this->verificaEmpresa($palabra,"email","empresas");
         if(count($buscaEmpresa) > 0)//existe como empresa
         {
-            if(count($buscaEmpresa) > 0)
+            $respuesta = array("mensaje"=>"Foto obtenida",
+                              "continuar"=>1,
+                              "tipo"=>"empresas",
+                              "datos"=>$buscaEmpresa);            
+        }
+        else
+        {
+            //lo busco como persona
+            $buscaPersona = $this->verificaEmpresa($palabra,"email","personas");
+            if(count($buscaPersona) > 0)//existe como persona
             {
                 $respuesta = array("mensaje"=>"Foto obtenida",
                                   "continuar"=>1,
-                                  "tipo"=>"empresas",
-                                  "datos"=>$buscaEmpresa);            
+                                  "tipo"=>"personas",
+                                  "datos"=>$buscaPersona); 
             }
             else
             {
                 $respuesta = array("mensaje"=>"No hay datos",
                                   "continuar"=>0,
-                                  "datos"=>"");    
-            }
-        }
-        else
-        {
-            $respuesta = array("mensaje"=>"No hay datos",
-                                  "continuar"=>0,
-                                  "tipo"=>"personas",
-                                  "datos"=>"");  
+                                  "tipo"=>"",
+                                  "datos"=>""); 
+
+            } 
         }
         return $respuesta;
     }

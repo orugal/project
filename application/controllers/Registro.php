@@ -25,6 +25,7 @@ class Registro extends CI_Controller
 	{
 		$salida['titulo'] = lang("tituloRegistroEmp");
 		$salida['centro'] = "registro/personas";
+		$salida['listaDeptos']	=		getDepartamentos('057',"ARRAY");
 		$this->load->view("registro/index",$salida);
 	}
 
@@ -52,6 +53,22 @@ class Registro extends CI_Controller
 		{
 			$procesoEmpresa = $this->logicaReg->insertaEmpresa($_POST);
 			echo json_encode($procesoEmpresa);
+		}
+		else
+		{
+			$respuesta = array("mensaje"=>"Acceso no admitido.",
+                              "continuar"=>0,
+                              "datos"=>""); 
+
+            echo json_encode($respuesta); 
+		}
+	}
+	public function insertaPersonas()
+	{
+		if(validaInApp("web"))//esta validación me hará consultas más seguras
+		{
+			$procesoPersona = $this->logicaReg->insertaPersona($_POST);
+			echo json_encode($procesoPersona);
 		}
 		else
 		{

@@ -13,6 +13,17 @@ class LogicaRegistro  {
         $dataEmpresa = $this->ci->dbRegistro->verificaEmpresa($select,$tabla);
         return $dataEmpresa;
     }
+
+    /*
+    * Inserta Empresas
+    * Función que realiza el registro de los perfiles empresariales
+    * @author Farez Prieto
+    * @date 08 de Julio 2016
+    * @return array $respuesta. Esta variable contiene 3 campos
+    * mensaje: texto que define la acción
+    * continuar: valor entero que retorna 1 si se cumplio el objetivo y si no se cumplió
+    * datos: array de con información
+    */
     public function insertaEmpresa($data)
     {
         extract($data);
@@ -117,6 +128,93 @@ class LogicaRegistro  {
                                         "continuar"=>0,
                                         "datos"=>"");
                     }
+                }
+            }
+        }
+        return $respuesta;
+    }
+    /*
+    * Inserta Personas
+    * Función que realiza el registro de los perfiles personales.
+    * @author Farez Prieto
+    * @date 08 de Julio 2016
+    * @return array $respuesta. Esta variable contiene 3 campos
+    * mensaje: texto que define la acción
+    * continuar: valor entero que retorna 1 si se cumplio el objetivo y si no se cumplió
+    * datos: array de con información
+    */
+    public function insertaPersona($data)
+    {
+        extract($data);
+        //antes de registrar la persona debo verificar que no exista
+        $verificoMailEnEmpresa = $this->verificaEmpresa(trim($email),"email","empresas");
+        if(count($verificoMailEnEmpresa) > 0)//la empresa existe y no debo permitirle el registro
+        {
+            $respuesta = array("mensaje"=>"El correo electrónico que intenta registrar pertenece a una cuenta empresarial, por favor verifique.",
+                            "continuar"=>0,
+                            "datos"=>"");
+        }
+        else
+        {
+            //ahora verifico que el mail no este registrado como persona
+            $verificoPersonaMail = $this->verificaEmpresa($email,"email","personas");
+            if(count($verificoPersonaMail) > 0)
+            {  
+                $respuesta = array("mensaje"=>"El correo electrónico que intenta registrar ya se encuentra registrado, por favor verifíquelo y si es posible ingrese otro.",
+                            "continuar"=>0,
+                            "datos"=>"");
+            }
+            else
+            {
+                //procedo a insertar la empresa
+                //armo la data que voy a insertar
+                $dataInsert['nombre']           =   trim($nombre);
+                $dataInsert['email']            =   trim($email);
+                $dataInsert['ciudad']           =   trim($ciudad);
+                $dataInsert['departamento']     =   trim($departamento);
+                //inserto los datos básicos de la empresa
+                $idPersona = $this->ci->dbRegistro->insertaPersona($dataInsert);
+                //si la inserción es correcta debo notificar para hacer el resto de inserciones
+                if(trim($idPersona) > 0)
+                {
+                    //después de haber insertado la empresa debo insertar el usuario y la clave para esta empresa
+                    $dataInsertClave['idGeneral']   =   $idPersona;
+                    $dataInsertClave['tipoLogin']   =   2;//tipo Empresa
+                    $dataInsertClave['usuario']     =   $email;
+                    $dataInsertClave['clave']       =   sha1($rclave);
+                    $dataInsertClave['clave64']     =   base64_encode($rclave);
+                    $dataInsertClave['cambioClave'] =   0;
+                    //inserto la clave
+                    $idLogin                        = $this->ci->dbRegistro->insertaClavePersona($dataInsertClave);
+                    if($idLogin > 0)
+                    {
+                        $envioMail                   =   sendMail($email,"Registro exitoso","Se ha realizado el registro de su cuenta personal en la plataforma");
+                        if($envioMail == 1)
+                        {
+                            $respuesta = array("mensaje"=>"Tu registro se ha llevado a cabo de manera exitosa, por favor verifique su correo electrónico al cual llegarán instrucciones de activación de su cuenta.",
+                                "continuar"=>1,
+                                "datos"=>"");
+                        }
+                        else
+                        {
+                            $respuesta = array("mensaje"=>"Oops!! Esto es bastante embarazoso, ha habido un error interno que no ha permitido registrar la empresa, por favor intentelo de nuevo más tarde - Mail",
+                                "continuar"=>0,
+                                "datos"=>"");
+                        }
+                        
+                    }
+                    else
+                    {
+                        $respuesta = array("mensaje"=>"Oops!! Esto es bastante embarazoso, ha habido un error interno que no ha permitido registrar la empresa, por favor intentelo de nuevo más tarde- Usuario",
+                                    "continuar"=>0,
+                                    "datos"=>"");
+                    }
+                }
+                else
+                {
+                    $respuesta = array("mensaje"=>"Oops!! Esto es bastante embarazoso, ha habido un error interno que no ha permitido registrar la empresa, por favor intentelo de nuevo más tarde. -Id Persona",
+                                    "continuar"=>0,
+                                    "datos"=>"");
                 }
             }
         }

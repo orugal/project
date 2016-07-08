@@ -14,10 +14,17 @@ class BaseDatosLogin extends CI_Model {
         $this->tablePersonas               = "app_personas"; 
         $this->tableLogin                  = "app_login"; 
     }
-    public function buscaEmpresa($where){
+    public function buscaEmpresa($where,$tabla){
         $this->db->select("*");
         $this->db->where($where);
-        $this->db->from($this->tableEmpresas);
+        if($tabla == "empresas")
+        {
+            $this->db->from($this->tableEmpresas);
+        }
+        else
+        {
+            $this->db->from($this->tablePersonas);
+        }
         $id = $this->db->get();
         //print_r($this->db->last_query());die();
         return $id->result_array();

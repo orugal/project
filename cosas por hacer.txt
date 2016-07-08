@@ -1,0 +1,4 @@
+- Registro Empresas OK
+- Registro Personas OK
+- Envio de mails de registro
+- Validar primera vez

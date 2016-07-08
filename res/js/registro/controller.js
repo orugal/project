@@ -42,6 +42,7 @@ project.controller('registroEmpresas', function($scope,$http,$q,constantes)
 			}
 		});
 	}
+	//registra empresas
 	$scope.registraEmpresa = function()
 	{
 		$scope.departamento = $("#departamento").val();
@@ -123,6 +124,88 @@ project.controller('registroEmpresas', function($scope,$http,$q,constantes)
 		{
 			constantes.confirmacion("Confirmación!","Los datos que acaba de ingresar son correctos, desea continuar?","info",function(){
 				var controlador = $scope.config.apiUrl+"registro/insertaEmpresas";
+				var parametros  = $("#formRegEmpresas").serialize();
+				constantes.consultaApi(controlador,parametros,function(json){
+					if(json.continuar == 1)
+					{
+						constantes.alerta("Atención",json.mensaje,"success",function(){
+							document.location = $scope.config.apiUrl;
+						})
+					}
+					else
+					{
+						constantes.alerta("Atención",json.mensaje,"error",function(){})
+					}
+				});
+			});
+			
+		}
+
+	}
+	//registra personas
+	$scope.registraPersona = function()
+	{
+		$scope.departamento = $("#departamento").val();
+		$scope.ciudad 		= $("#ciudad").val();
+
+		if($scope.nombre == "" || $scope.nombre == undefined)
+		{
+			constantes.alerta("Atención","El campo nombre es requerido","warning",function(){
+				setTimeout(function(){$("#nombre").focus()});
+			})
+		}
+		else if($scope.email == "" || $scope.email == undefined)
+		{
+			constantes.alerta("Atención","El campo correo electrónico es requerido y debe ser un correo válido","warning",function(){
+				setTimeout(function(){$("#email").focus()});
+			})
+		}
+		else if($scope.email != "" && !constantes.validaMail($scope.email))
+		{
+			constantes.alerta("Atención","Debe escribir un correo electrónico válido","warning",function(){
+				setTimeout(function(){$("#email").focus()});
+			})
+		}
+		else if($scope.departamento == "" || $scope.departamento == undefined)
+		{
+			constantes.alerta("Atención","Seleccione el departamento donde actualmente reside","warning",function(){
+				setTimeout(function(){$("#departamento").focus()});
+			})
+		}
+		else if($scope.ciudad == "" || $scope.ciudad == undefined)
+		{
+			constantes.alerta("Atención","Seleccione la ciudad donde actualmente reside","warning",function(){
+				setTimeout(function(){$("#ciudad").focus()});
+			})
+		}
+		else if($scope.clave == "" || $scope.clave == undefined)
+		{
+			constantes.alerta("Atención","Escriba una clave para su cuenta","warning",function(){
+				setTimeout(function(){$("#clave").focus()});
+			})
+		}
+		else if($scope.rclave == "" || $scope.rclave == undefined)
+		{
+			constantes.alerta("Atención","Debe volver a escribir la clave de ingresó anteriormente","warning",function(){
+				setTimeout(function(){$("#rclave").focus()});
+			})
+		}
+		else if($scope.clave != "" && $scope.rclave != "" && $scope.rclave != $scope.clave)
+		{
+			constantes.alerta("Atención","Las contraseñas no coinciden, por favor verifique.","warning",function(){
+				setTimeout(function(){$("#rclave").focus()});
+			})
+		}
+		else if(!$("#terminos").prop('checked'))
+		{
+			constantes.alerta("Atención","Debe leer y aceptar los términos y condiciones","warning",function(){
+				setTimeout(function(){$("#terminos").focus()});
+			})
+		}
+		else
+		{
+			constantes.confirmacion("Confirmación!","Los datos que acaba de ingresar son correctos, desea continuar?","info",function(){
+				var controlador = $scope.config.apiUrl+"registro/insertaPersonas";
 				var parametros  = $("#formRegEmpresas").serialize();
 				constantes.consultaApi(controlador,parametros,function(json){
 					if(json.continuar == 1)

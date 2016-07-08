@@ -30,6 +30,7 @@ class BaseDatosRegistro extends CI_Model {
         //print_r($this->db->last_query());die();
         return $id->result_array();
     }
+    //registro empresa
     public function insertaEmpresa($dataInserta){
 
         $this->db->insert($this->tableEmpresas,$dataInserta);
@@ -45,6 +46,19 @@ class BaseDatosRegistro extends CI_Model {
     public function insertaPago($dataInserta){
 
         $this->db->insert($this->tablePagosEmpresa,$dataInserta);
+        //print_r($this->db->last_query());die();
+        return $this->db->insert_id();
+    }
+    //registro persona
+    public function insertaPersona($dataInserta){
+
+        $this->db->insert($this->tablePersonas,$dataInserta);
+        //print_r($this->db->last_query());die();
+        return $this->db->insert_id();
+    }
+    public function insertaClavePersona($dataInserta){
+
+        $this->db->insert($this->tableClaveEmpresa,$dataInserta);
         //print_r($this->db->last_query());die();
         return $this->db->insert_id();
     }

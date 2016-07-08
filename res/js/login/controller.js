@@ -23,12 +23,28 @@ project.controller('login', function($scope,$http,$q,constantes)
 			{
 				if(json.datos[0].icono != "")
 				{
-					$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/fotos/"+json.tipo+"/"+json.datos[0].idEmpresa+"/"+json.datos[0].icono;
+					//alert(json.tipo)
+					if(json.tipo == "empresas")
+					{
+						$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/fotos/"+json.tipo+"/"+json.datos[0].idEmpresa+"/"+json.datos[0].icono;
+						$scope.$digest();
+					}
+					else
+					{
+						$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/fotos/"+json.tipo+"/"+json.datos[0].idPersona+"/"+json.datos[0].icono;
+						$scope.$digest();
+					}
+				}
+				else
+				{
+					$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/img/user.jpg";
+					$scope.$digest();
 				}
 			}
 			else
 			{
 				$scope.fotoLogin 		= 	$scope.config.apiUrl+"res/img/user.jpg";
+				$scope.$digest();	
 			}
 		});
 	}

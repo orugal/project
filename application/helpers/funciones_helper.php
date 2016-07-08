@@ -50,7 +50,7 @@ function sendMail($para,$asunto,$mensaje)
       'smtp_host' => 'smtpout.secureserver.net',
       'smtp_user' => 'info@wannabe.com.co',
       'smtp_pass' => 'Jg$E3D+u',
-      'smtp_port' => 465,
+      'smtp_port' => 25,
       'crlf' => "\r\n",
       'newline' => "\r\n",
       'mailtype'=>"html"
