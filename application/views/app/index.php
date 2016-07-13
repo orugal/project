@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ?>res/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>res/css/bootstrap-suggest.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo base_url() ?>res/css/sb-admin.css" rel="stylesheet">
     <!-- Morris Charts CSS -->
@@ -53,6 +54,7 @@
     <script type="text/javascript" src="<?php echo base_url()?>res/js/sweetalert.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url() ?>res/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url() ?>res/js/bootstrap-suggest.js"></script>
     <!-- Morris Charts JavaScript -->
 
     <script type="text/javascript" src="<?php echo base_url()?>res/js/angular.min.js"></script>
@@ -62,6 +64,7 @@
     <script type="text/javascript" src="<?php echo base_url()?>res/js/app.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/factory.js"></script>
     <script type="text/javascript" src="<?php echo base_url()?>res/js/areas/controller.js"></script>
+    <script type="text/javascript" src="<?php echo base_url()?>res/js/personas/controller.js"></script>
     <script type="text/javascript">
         var configLogin =  {
             apiUrl: '<?php echo base_url()?>'

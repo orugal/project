@@ -50,7 +50,7 @@ class App extends CI_Controller
 		if(validaIngreso())
 		{
 			$opc 			  = "personas"	;//persistencia del menú
-			$salida['titulo'] = lang("titulo");
+			$salida['titulo'] = lang("tituloPersonas");
 			$salida['centro'] = "app/personas/home";
 			$salida['menu']   =  $this->menuEmpresa($opc);
 			$this->load->view("app/index",$salida);

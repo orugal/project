@@ -1,6 +1,6 @@
 <div class="container-fluid" ng-controller="areas" ng-init="areasInit()">
 
-<div id="modalArea" class="modal fade" role="dialog">
+    <div id="modalArea" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
         <div class="modal-content">
@@ -25,9 +25,6 @@
       </div>
     </div>
 
-
-
-
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -36,21 +33,21 @@
                 <div class="btn-group" >
                     <button type="button" class="btn dropdown-toggle"
                             data-toggle="dropdown">
-                      Acciones <span class="caret"></span>
+                      <?php echo lang("lblAcciones") ?> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                       
-                        <li role="separator" class="divider"></li><li class="dropdown-header">Seleccione una opción</li>
-                        <li><a class="btn" data-toggle="modal" data-target="#modalArea"><i class="fa fa-fw fa-sitemap"></i> Agregar nueva área</a></li>
+                        <li role="separator" class="divider"></li><li class="dropdown-header"><?php echo lang("lblSeleccioneOpc") ?></li>
+                        <li><a class="btn" data-toggle="modal" data-target="#modalArea"><i class="fa fa-fw fa-sitemap"></i> <?php echo lang("lblagregarNueva") ?></a></li>
                     </ul>
                 </div>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="<?php echo base_url() ?>"><i class="fa fa-home"></i> Singularcom</a>
+                    <a href="<?php echo base_url() ?>"><i class="fa fa-home"></i> <?php echo $_SESSION['project']['info']['nombre'] ?></a>
                 </li>
                 <li class="active">
-                     Áreas
+                     <?php echo lang("tituloArea") ?>
                 </li>
             </ol>
         </div>
@@ -60,7 +57,7 @@
         <div class="col-lg-12">
             <div class="alert alert-primary alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-info-circle"></i>  <strong>Que son las áreas?</strong> Es cada una se las dependencias de las cuales está construida su empresa.
+                <i class="fa fa-info-circle"></i>  <?php echo lang("txtInfoArea2") ?>
             </div>
         </div>
     </div>
@@ -69,7 +66,7 @@
         <div class="col-lg-12">
             <form class="form-inline">
               <div class="form-group">
-                <label for="exampleInputName2">Filtrar: </label>
+                <label for="exampleInputName2"><?php echo lang("LblFiltrar") ?>: </label>
                 <input type="text" class="form-control" ng-model="q" placeholder="">
               </div>
             </form>
@@ -78,13 +75,13 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Listado de áreas actuales </h2>
+            <h2><?php echo lang("txtInfoArea4") ?></h2>
 
-            <div class="row" ng-if="listaAreas.length == 0">
+            <div class="row" ng-if="listaAreas.length == 1">
                 <div class="col-lg-12">
                     <div class="alert alert-info">
                         <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>-->
-                        <i class="fa fa-info-circle"></i>  <strong>Vaya!</strong> parece que aún no hay áreas de trabajo creadas.
+                        <?php echo lang("txtInfoArea3") ?>
                     </div>
                 </div>
             </div>
@@ -93,11 +90,11 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>Nombre del Área</th>
-                            <th class="text-center">Personas</th>
+                            <th><?php echo lang("txtInfoArea6") ?></th>
+                            <th class="text-center"><?php echo lang("txtInfoArea7") ?></th>
                             <!--<th class="text-center">% Cumplimiento</th>-->
-                            <th class="text-center">Tareas Asignadas</th>
-                            <th class="text-center">Acciones</th>
+                            <!--<th class="text-center"><?php echo lang("txtInfoArea8") ?></th>-->
+                            <th class="text-center"><?php echo lang("lblAcciones") ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,7 +102,7 @@
                             <td>{{areas.nombreArea}}</td>
                             <td class="text-center">10</td>
                             <!--<td class="text-center">32.3%</td>-->
-                            <td class="text-center">321</td>
+                            <!--<td class="text-center">321</td>-->
                             <td  class="text-center">
                                 <!--<a href="javascript:void(0)" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">info</i></a>-->
                                 <a ng-click="eliminaArea(results,$index)" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
@@ -115,7 +112,7 @@
                 </table>
 
                 <li class="animate-repeat" ng-if="results.length == 0">
-                  <strong>No hay registros encontrados con la palabra buscada...</strong>
+                  <strong><?php echo lang("txtInfoArea5") ?></strong>
                 </li>
             </div>
         </div>

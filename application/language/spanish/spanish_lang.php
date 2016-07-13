@@ -80,6 +80,30 @@ $lang['tituloArea']				= "Áreas";
 $lang['tituloCreaArea']			= "Crear nueva área";
 $lang['plh_CreaArea']			= "Escriba el nombre de la nueva área";
 $lang['txtInfoArea1']			= "Este nombre identificará el área que se va a crear";
+$lang['txtInfoArea2']			= "<strong>Que son las áreas?</strong> Es cada una se las dependencias de las cuales está construida su empresa.";
+$lang['txtInfoArea3']			= "<i class='fa fa-info-circle'></i>  <strong>Vaya!</strong> parece que aún no hay áreas de trabajo creadas.";
+$lang['txtInfoArea4']			= "Listado de áreas actuales";
+$lang['txtInfoArea5']			= "No hay registros encontrados con la palabra buscada...";
+$lang['txtInfoArea6']			= "Nombre del Área";
+$lang['txtInfoArea7']			= "Personas";
+$lang['txtInfoArea8']			= "Tareas Asignadas";
+
+//Personas
+$lang['tituloPersonas']				= "Personas";
+$lang['txtPersona1']				= "Recuerde que las personas que desee agregar deben estar previamente registradas en la aplicación.";
+$lang['txtPersona2']				= "Agregar persona";
+$lang['txtPersona3']				= "Agregue personas a su empresa simplemente buscándola dentro de nuestro sistema, si la persona no aparece en el listado debe pedirle que se registre.";
+$lang['txtPersona4']				= "Realice la búsqueda por correo electrónico o por nombre de la persona.";
+$lang['txtPersona5']				= "Escriba nombre o correo electrónico.";
+$lang['txtPersona6']				= "Realice la búsqueda anteponiendo el caracter @. Ej: @Jhon Puerto.";
+
+
+//variables varias
+$lang['lblAcciones']				= "Acciones";
+$lang['lblSeleccioneOpc']			= "Seleccione una opción";
+$lang['lblagregarNueva']			= "Agregar nueva";
+$lang['LblFiltrar']					= "Filtrar";
+$lang['lblEnviaInvitacion']			= "Enviar Invitación";
 
 
 ?>
