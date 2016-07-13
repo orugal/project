@@ -1291,7 +1291,7 @@ CREATE TABLE `app_login` (
   `verificado` int(11) DEFAULT '0',
   `estado` int(11) DEFAULT '1',
   PRIMARY KEY (`idLoginEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_login` */
 
@@ -1302,6 +1302,7 @@ insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`cla
 insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (5,5,1,'isarmiento@itsoluciones.net','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,1,0,1);
 insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (6,6,1,'kyodfgdfgf@fsdfdf.vom','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
 insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (7,1,2,'kyo20052@gmail.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (8,2,2,'uprueba@gmail.com','f7c3bc1d808e04732adf679965ccc34ca7ae3441','MTIzNDU2Nzg5',0,1,0,1);
 
 /*Table structure for table `app_mails` */
 
@@ -1316,7 +1317,7 @@ CREATE TABLE `app_mails` (
   `fechaEnvio` datetime DEFAULT NULL,
   `ip` text,
   PRIMARY KEY (`idMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_mails` */
 
@@ -1335,6 +1336,7 @@ insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (13,'isarmiento@itsoluciones.net','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 13:15:57','192.168.0.12');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (14,'kyodfgdfgf@fsdfdf.vom','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 13:32:17','192.168.0.12');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (15,'kyo20052@gmail.com','Registro exitoso','Se ha realizado el registro de su cuenta personal en la plataforma',1,'2016-07-08 04:58:15','192.168.0.14');
+insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (16,'uprueba@gmail.com','Registro exitoso','Se ha realizado el registro de su cuenta personal en la plataforma',1,'2016-07-13 15:56:17','192.168.0.12');
 
 /*Table structure for table `app_paises` */
 
@@ -1374,11 +1376,28 @@ CREATE TABLE `app_personas` (
   `estado` int(11) DEFAULT '1',
   `eliminado` int(11) DEFAULT '0',
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_personas` */
 
 insert into `app_personas` (`idPersona`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Farez Prieto',NULL,NULL,1,11,NULL,NULL,NULL,NULL,'icono.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,0);
+insert into `app_personas` (`idPersona`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (2,'usuario prueba',NULL,NULL,1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'uprueba@gmail.com',NULL,1,0);
+
+/*Table structure for table `app_rel_personas_empresa` */
+
+DROP TABLE IF EXISTS `app_rel_personas_empresa`;
+
+CREATE TABLE `app_rel_personas_empresa` (
+  `idRelPerEmp` bigint(20) NOT NULL AUTO_INCREMENT,
+  `idEmpresa` bigint(20) DEFAULT NULL,
+  `idPersona` bigint(20) DEFAULT NULL,
+  `fechaRelacion` datetime DEFAULT NULL,
+  `estado` int(11) DEFAULT '1',
+  `eliminado` int(11) DEFAULT '0',
+  PRIMARY KEY (`idRelPerEmp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `app_rel_personas_empresa` */
 
 /*Table structure for table `aud_areas` */
 
