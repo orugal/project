@@ -105,7 +105,7 @@
                             <!--<td class="text-center">321</td>-->
                             <td  class="text-center">
                                 <!--<a href="javascript:void(0)" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">info</i></a>-->
-                                <a ng-click="eliminaArea(results,$index)" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
+                                <a ng-click="eliminaArea(results,$index)" class="btn btn-danger btn-fab btn-fab-mini" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo lang("lblEliminar") ?>"><i class="material-icons">delete</i></a>
                             </td>
                         </tr>
                     </tbody>

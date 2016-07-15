@@ -15,6 +15,10 @@ function getIP()
         }
     }
 }
+function getDisp()
+{
+    return $_SERVER['HTTP_USER_AGENT'];
+}
 
 function acentos($cadena){ 
     $search  = explode(",","á,é,í,ó,ú,ñ,Á,É,Í,Ó,Ú,Ñ,Ã¡,Ã©,Ã*,Ã³,Ãº,Ã±,Ã,ÃÃ¡,ÃÃ©,ÃÃ*,ÃÃ³,ÃÃº,ÃÃ±,Ã“,Ã ,Ã‰,Ã ,Ãš,â€œ,â€ ,Â¿,ü");

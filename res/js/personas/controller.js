@@ -72,28 +72,18 @@ project.controller('personas', function($scope,$http,$q,constantes)
 	}
 	$scope.agregaPersona = function()
 	{
-		alert($scope.idPersona+"asdassdasd");
+		var controlador = 	$scope.config.apiUrl+"Personas/agregaPersona";
+		var parametros  =   "idPersona="+$scope.idPersona;
+		constantes.consultaApi(controlador,parametros,function(json){
+			if(json.continuar == 1)
+			{
+				$scope.listaAreas		=	json.datos;
+				$scope.$digest();
+			}
+			else
+			{
+				constantes.alerta("Atención",json.mensaje,"warning",function(){})
+			}
+		});
 	}
-	/*$scope.eliminaArea = function(results,index)
-	{
-		constantes.confirmacion("Atención","Está a punto de eliminar un área de servicio, desea continuar?","warning",function(){
-			var areaBorrar = results[index].idArea;
-			//se inicia el login
-			var controlador = 	$scope.config.apiUrl+"Areas/borrarArea";
-			var parametros  = 	"idArea="+Math.round(Math.random()*(100-999)+parseInt(999))+areaBorrar;
-			constantes.consultaApi(controlador,parametros,function(json){
-				if(json.continuar == 1)
-				{
-					swal.close();
-					$scope.q = "";
-					$scope.getAreas();
-					$scope.$digest();
-				}
-				else
-				{
-					constantes.alerta("Atención",json.mensaje,"warning",function(){})
-				}
-			});
-		})
-	}*/
 });

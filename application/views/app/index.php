@@ -69,7 +69,12 @@
         var configLogin =  {
             apiUrl: '<?php echo base_url()?>'
         }
-         $.material.init();
+        $.material.init();
+        setTimeout(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        },1000);
+        
+
     </script>
 </body>
 </html>

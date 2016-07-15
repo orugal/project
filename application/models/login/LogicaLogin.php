@@ -69,6 +69,8 @@ class LogicaLogin  {
         //si retorna quiere decir que el usuario existe
         if(count($dataLogin) > 0)
         {
+            //cada vez que se realice un lógin lo voy a guardar por seguridad
+            $this->registraIngresoLogin($dataLogin[0]);
             //ahora debo identificar el tipo de login que me ha retornado este query
             if($dataLogin[0]['tipoLogin'] == 1)//empresa
             {
@@ -76,7 +78,7 @@ class LogicaLogin  {
             }
             elseif($dataLogin[0]['tipoLogin'] == 2)//usuario
             {
-                //$respuesta = $this->procesoPersonas($dataLogin[0]);
+                $respuesta = $this->procesoPersonas($dataLogin[0]);
             }
             else
             {
@@ -94,6 +96,61 @@ class LogicaLogin  {
 
         return $respuesta;
     }
+    /*
+    * Función que permite poner en una tabla un registro de auditoría cada vez que un usuario se loguea, esta función guarda la ip, la fecha de logueo y el dispositivo desde el cual ingresa
+    * @input array $dataLogin la cual contiene la información del usuario logueado
+    * @return no retorna nada.
+    * @author Farez Prieto
+    * @date 15 de Julio de 2016
+    */
+    public function registraIngresoLogin($dataLogin)
+    {
+        $data['idLogin'] = $dataLogin['idLogin'];
+        $data['fecha'] = date("Y-m-d H:i:s");
+        $data['ip']      = getIP();
+        $data['disp']    = getDisp();
+        $registraIngreso = $this->ci->dbLogin->registraIngreso($data);
+    }
+
+    /*
+    * Función que realizará el proceso de login para los usuarios tipo persona
+    * @input array $dataLogin la cual contiene la información del usuario logueado
+    * @return array $respuesta con las 4 variables mensaje, datos, zona y continuar
+    * Zona 0: Login
+    * Zona 1: Pago -- Los usuarios no deben pagar
+    * Zona 2: Ingreso
+    * @author Farez Prieto
+    * @date 15 de Julio de 2016
+    */
+    public function procesoPersonas($dataLogin)
+    {
+        //lo primero que valido es si el usuario está activo o no
+        if($dataLogin['estado'] == 1)//estado
+        {
+            //si todo ha salido bien simplemente consulto la información de la empresa y envio al usuario al home de la plataforma
+                $whereInfoEmpresa['idPersona'] = $dataLogin['idGeneral'];
+                $infoEmpresa =  $this->ci->dbGeneral->getInfoPersonas($whereInfoEmpresa);
+                //levanto la famosa sessión project con 3 posiciones importantes para dejarlo todo ordenado
+                //info
+                //login
+                //esta variable permite el acceso a todo el sistema
+                $_SESSION['project']['info']  = $infoEmpresa[0];
+                $_SESSION['project']['login'] = $dataLogin;
+                $respuesta = array("mensaje"=>"Bienvenido al sistema",
+                                   "continuar"=>1,
+                                   "zona"=>2,
+                                   "datos"=>""); 
+        }
+        else
+        {
+            $respuesta = array("mensaje"=>"Parece que su usuario está inactivo, por favor intente de nuevo, si el problema persiste pongase en contacto con soporte técnico.",
+                                  "continuar"=>0,
+                                  "zona"=>0,
+                                  "datos"=>""); 
+        }
+        return $respuesta;
+    }
+
     /*
     * Función que realizará el proceso de login para las empresas
     * la dejo de maneja independiente para evitar tanto desorden de código
@@ -170,7 +227,7 @@ class LogicaLogin  {
         }
         else
         {
-            $respuesta = array("mensaje"=>"Parece que su usuario está inactivo, por favor intente de nuevo, si el problema persiste pongase en contacto con soporte técnico..",
+            $respuesta = array("mensaje"=>"Parece que su usuario está inactivo, por favor intente de nuevo, si el problema persiste pongase en contacto con soporte técnico.",
                                   "continuar"=>0,
                                   "zona"=>0,
                                   "datos"=>""); 

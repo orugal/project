@@ -88,6 +88,7 @@ $lang['txtInfoArea6']			= "Nombre del Área";
 $lang['txtInfoArea7']			= "Personas";
 $lang['txtInfoArea8']			= "Tareas Asignadas";
 
+
 //Personas
 $lang['tituloPersonas']				= "Personas";
 $lang['txtPersona1']				= "Recuerde que las personas que desee agregar deben estar previamente registradas en la aplicación.";
@@ -104,6 +105,7 @@ $lang['lblSeleccioneOpc']			= "Seleccione una opción";
 $lang['lblagregarNueva']			= "Agregar nueva";
 $lang['LblFiltrar']					= "Filtrar";
 $lang['lblEnviaInvitacion']			= "Enviar Invitación";
+$lang['lblEliminar']				= "Eliminar";
 
 
 ?>

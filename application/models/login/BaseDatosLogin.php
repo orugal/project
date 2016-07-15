@@ -3,9 +3,10 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class BaseDatosLogin extends CI_Model {
-    private $tableEmpresas                 =   "";
-    private $tablePersonas                 =   "";
+    private $tableEmpresas              =   "";
+    private $tablePersonas              =   "";
     private $tableLogin                 =   "";
+    private $tableRegistrosLogin        =   "";
     public function __construct() 
     {
         parent::__construct();
@@ -13,6 +14,7 @@ class BaseDatosLogin extends CI_Model {
         $this->tableEmpresas               = "app_empresas"; 
         $this->tablePersonas               = "app_personas"; 
         $this->tableLogin                  = "app_login"; 
+        $this->tableRegistrosLogin         = "app_registrosLogin"; 
     }
     public function buscaEmpresa($where,$tabla){
         $this->db->select("*");
@@ -37,6 +39,12 @@ class BaseDatosLogin extends CI_Model {
         $id = $this->db->get();
         //print_r($this->db->last_query());die();
         return $id->result_array();
+    }
+    public function registraIngreso($dataInserta)
+    {
+        $this->db->insert($this->tableRegistrosLogin,$dataInserta);
+        //print_r($this->db->last_query());die();
+        return $this->db->insert_id();
     }
 }
 

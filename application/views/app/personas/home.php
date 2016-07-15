@@ -110,62 +110,12 @@
                             <td class="text-center">5</td>
                             <td class="text-center">Desarrollo</td>
                             <td  class="text-center">
-                                <a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>
-                                <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                <a href="<?php echo base_url()?>empresas/proyectos" title="Ver tareas" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
+                                <a href="<?php echo base_url()?>empresas/proyectos" class="btn btn-info btn-fab btn-fab-mini" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Esperando a que el usuario acepte la solicitud"><i class="material-icons">schedule</i></a>
                             </td>
                         </tr>
                         <tr>
                             <th><i class="material-icons" title="Programador">code</i></th>
                             <td>Jhon Puerto</td>
-                            <td class="text-center">33.3%</td>
-                            <td class="text-center">5</td>
-                            <td class="text-center">Desarrollo</td>
-                            <td  class="text-center">
-                                <a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>
-                                <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                <a href="<?php echo base_url()?>empresas/proyectos" title="Ver tareas" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><i class="material-icons" title="Diseñador">palette</i></th>
-                            <td>Cesar Muñóz</td>
-                            <td class="text-center">33.3%</td>
-                            <td class="text-center">5</td>
-                            <td class="text-center">Desarrollo</td>
-                            <td  class="text-center">
-                                <a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>
-                                <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                <a href="<?php echo base_url()?>empresas/proyectos" title="Ver tareas" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><i class="material-icons" title="Soporte técnico">memory</i></th>
-                            <td>Diego Sanabria</td>
-                            <td class="text-center">33.3%</td>
-                            <td class="text-center">5</td>
-                            <td class="text-center">Desarrollo</td>
-                            <td  class="text-center">
-                                <a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>
-                                <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                <a href="<?php echo base_url()?>empresas/proyectos" title="Ver tareas" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><i class="material-icons" title="Operativo">business</i></th>
-                            <td>Diego Sanabria</td>
-                            <td class="text-center">33.3%</td>
-                            <td class="text-center">5</td>
-                            <td class="text-center">Desarrollo</td>
-                            <td  class="text-center">
-                                <a href="javascript:void(0)" title="Editar" class="btn btn-primary btn-fab btn-fab-mini"><i class="material-icons">edit</i></a>
-                                <a href="javascript:void(0)" title="Eliminar" class="btn btn-danger btn-fab btn-fab-mini"><i class="material-icons">delete</i></a>
-                                <a href="<?php echo base_url()?>empresas/proyectos" title="Ver tareas" class="btn btn-success btn-fab btn-fab-mini"><i class="material-icons">table</i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th><i class="material-icons" title="Ventas">work</i></th>
-                            <td>Diego Sanabria</td>
                             <td class="text-center">33.3%</td>
                             <td class="text-center">5</td>
                             <td class="text-center">Desarrollo</td>

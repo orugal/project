@@ -120,24 +120,29 @@
            <!-- Menú lateral-->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li <?php if($opc == 'areas'){?>class="active"<?php }?>>
-                        <a href="<?php echo base_url()?>App/areas"><i class="fa fa-fw fa-sitemap"></i> Areas</a>
-                    </li>
-                    <li <?php if($opc == 'personas'){?>class="active"<?php }?>>
-                        <a href="<?php echo base_url()?>App/personas"><i class="fa fa-fw fa-user"></i> Personas</a>
-                    </li>
+                    <?php if($_SESSION['project']['login']['tipoLogin'] == 1){ ?>
+                        <li <?php if($opc == 'areas'){?>class="active"<?php }?>>
+                            <a href="<?php echo base_url()?>App/areas"><i class="fa fa-fw fa-sitemap"></i> Areas</a>
+                        </li>
+                        <li <?php if($opc == 'personas'){?>class="active"<?php }?>>
+                            <a href="<?php echo base_url()?>App/personas"><i class="fa fa-fw fa-user"></i> Personas</a>
+                        </li>
+                    <?php } ?>
                     <li <?php if($opc == 'proyectos'){?>class="active"<?php }?>>
                         <a href="<?php echo base_url()?>App/proyectos"><i class="fa fa-fw fa-table"></i> Proyectos</a>
                     </li>
                     <li <?php if($opc == 'reportes'){?>class="active"<?php }?>>
                         <a href="<?php echo base_url()?>App/reportes"><i class="fa fa-fw fa-clock-o"></i> Reporte de ingreso</a>
                     </li>
-                    <li <?php if($opc == 'ofertas'){?>class="active"<?php }?>>
-                        <a href="<?php echo base_url()?>App/configuracion"><i class="fa fa-fw fa-desktop"></i> Ofertas Laborales</a>
-                    </li>
-                    <li <?php if($opc == 'pautas'){?>class="active"<?php }?>>
-                        <a href="<?php echo base_url()?>App/configuracion"><i class="fa fa-fw fa-desktop"></i> Pautas publicitarias</a>
-                    </li>
+                    
+                    <?php if($_SESSION['project']['login']['tipoLogin'] == 1){ ?>
+                        <li <?php if($opc == 'ofertas'){?>class="active"<?php }?>>
+                            <a href="<?php echo base_url()?>App/configuracion"><i class="fa fa-fw fa-desktop"></i> Ofertas Laborales</a>
+                        </li>
+                        <li <?php if($opc == 'pautas'){?>class="active"<?php }?>>
+                            <a href="<?php echo base_url()?>App/configuracion"><i class="fa fa-fw fa-desktop"></i> Pautas publicitarias</a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
