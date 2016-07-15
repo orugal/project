@@ -1280,7 +1280,7 @@ insert into `app_estadopago` (`idPago`,`idEmpresa`,`esDemo`,`descripcion`,`fecha
 DROP TABLE IF EXISTS `app_login`;
 
 CREATE TABLE `app_login` (
-  `idLoginEmpresa` bigint(20) NOT NULL AUTO_INCREMENT,
+  `idLogin` bigint(20) NOT NULL AUTO_INCREMENT,
   `idGeneral` bigint(20) DEFAULT NULL,
   `tipoLogin` int(11) DEFAULT NULL,
   `usuario` text,
@@ -1290,19 +1290,19 @@ CREATE TABLE `app_login` (
   `primeraVez` int(11) DEFAULT '1',
   `verificado` int(11) DEFAULT '0',
   `estado` int(11) DEFAULT '1',
-  PRIMARY KEY (`idLoginEmpresa`)
+  PRIMARY KEY (`idLogin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `app_login` */
 
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (1,1,1,'info@orugal.com.co','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (2,2,1,'isarmiento@itsoluciones.net','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (3,3,1,'info@oempresarial.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (4,4,1,'prueba@eltiempo.com','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (5,5,1,'isarmiento@itsoluciones.net','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (6,6,1,'kyodfgdfgf@fsdfdf.vom','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (7,1,2,'kyo20052@gmail.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
-insert into `app_login` (`idLoginEmpresa`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (8,2,2,'uprueba@gmail.com','f7c3bc1d808e04732adf679965ccc34ca7ae3441','MTIzNDU2Nzg5',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (1,1,1,'info@orugal.com.co','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (2,2,1,'isarmiento@itsoluciones.net','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (3,3,1,'info@oempresarial.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (4,4,1,'prueba@eltiempo.com','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (5,5,1,'isarmiento@itsoluciones.net','40bd001563085fc35165329ea1ff5c5ecbdbbeef','MTIz',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (6,6,1,'kyodfgdfgf@fsdfdf.vom','7c4a8d09ca3762af61e59520943dc26494f8941b','MTIzNDU2',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (7,1,2,'kyo20052@gmail.com','866476a47c856b5b9f45e3ebe58aa6eaef9a50a0','MTAzMDUzNDg0OQ==',0,1,0,1);
+insert into `app_login` (`idLogin`,`idGeneral`,`tipoLogin`,`usuario`,`clave`,`clave64`,`cambioClave`,`primeraVez`,`verificado`,`estado`) values (8,2,2,'uprueba@gmail.com','f7c3bc1d808e04732adf679965ccc34ca7ae3441','MTIzNDU2Nzg5',0,1,0,1);
 
 /*Table structure for table `app_mails` */
 
@@ -1337,6 +1337,26 @@ insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (14,'kyodfgdfgf@fsdfdf.vom','Registro de empresa exitoso','Se ha realizado el registro de su empresa en la plataforma',0,'2016-06-29 13:32:17','192.168.0.12');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (15,'kyo20052@gmail.com','Registro exitoso','Se ha realizado el registro de su cuenta personal en la plataforma',1,'2016-07-08 04:58:15','192.168.0.14');
 insert into `app_mails` (`idMail`,`para`,`asunto`,`mensaje`,`estado`,`fechaEnvio`,`ip`) values (16,'uprueba@gmail.com','Registro exitoso','Se ha realizado el registro de su cuenta personal en la plataforma',1,'2016-07-13 15:56:17','192.168.0.12');
+
+/*Table structure for table `app_notificaciones` */
+
+DROP TABLE IF EXISTS `app_notificaciones`;
+
+CREATE TABLE `app_notificaciones` (
+  `idNotificacion` bigint(20) NOT NULL AUTO_INCREMENT,
+  `titulo` text,
+  `texto` text,
+  `idLogin` bigint(20) DEFAULT NULL,
+  `tipoNotificacion` int(11) DEFAULT '1',
+  `idContenido` bigint(20) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `ip` text,
+  `vista` int(11) DEFAULT '0',
+  `eliminado` int(11) DEFAULT '0',
+  PRIMARY KEY (`idNotificacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `app_notificaciones` */
 
 /*Table structure for table `app_paises` */
 
@@ -1382,6 +1402,26 @@ CREATE TABLE `app_personas` (
 
 insert into `app_personas` (`idPersona`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (1,'Farez Prieto',NULL,NULL,1,11,NULL,NULL,NULL,NULL,'icono.png','icono.png',NULL,'kyo20052@gmail.com',NULL,1,0);
 insert into `app_personas` (`idPersona`,`nombre`,`direccion`,`telefono`,`ciudad`,`departamento`,`pais`,`tipoDocumento`,`nroDocumento`,`tipoActividad`,`logo`,`icono`,`nombreEncargado`,`email`,`ultimoIngreso`,`estado`,`eliminado`) values (2,'usuario prueba',NULL,NULL,1,11,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'uprueba@gmail.com',NULL,1,0);
+
+/*Table structure for table `app_registroslogin` */
+
+DROP TABLE IF EXISTS `app_registroslogin`;
+
+CREATE TABLE `app_registroslogin` (
+  `idRegistro` bigint(20) NOT NULL AUTO_INCREMENT,
+  `idLogin` bigint(20) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL,
+  `ip` text,
+  `disp` text,
+  `eliminado` int(11) DEFAULT '0',
+  PRIMARY KEY (`idRegistro`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+/*Data for the table `app_registroslogin` */
+
+insert into `app_registroslogin` (`idRegistro`,`idLogin`,`fecha`,`ip`,`disp`,`eliminado`) values (1,1,'2016-07-15 12:22:17','192.168.0.12','Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0',0);
+insert into `app_registroslogin` (`idRegistro`,`idLogin`,`fecha`,`ip`,`disp`,`eliminado`) values (2,7,'2016-07-15 12:33:23','192.168.0.12','Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0',0);
+insert into `app_registroslogin` (`idRegistro`,`idLogin`,`fecha`,`ip`,`disp`,`eliminado`) values (3,1,'2016-07-15 12:38:35','192.168.0.12','Mozilla/5.0 (Windows NT 10.0; WOW64; rv:49.0) Gecko/20100101 Firefox/49.0',0);
 
 /*Table structure for table `app_rel_personas_empresa` */
 
